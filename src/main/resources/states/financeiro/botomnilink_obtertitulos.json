@@ -1,0 +1,10 @@
+{
+	"states":[
+		{
+			"id": "/OBTER_TITULOS",
+			"idNavigationDetail": 12500,
+			"initialMessages": ["Aguarde um instante, vou procurar seus boletos em nosso sistema..."],
+			"maxInputErrorResponses":["Desculpe, mas houve um problema ao consultar seus boletos."]
+		}
+	]
+}

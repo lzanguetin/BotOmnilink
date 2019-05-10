@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_INC",
+			"idNavigationDetail": 11801,
+			"initialMessages": ["Desculpe, mas houve um problema ao espelhar o sinal."]
+		}
+	]
+}

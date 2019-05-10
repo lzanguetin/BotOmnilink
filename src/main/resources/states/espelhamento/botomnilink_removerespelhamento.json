@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/REMOVER_ESP",
+			"idNavigationDetail": 11400,
+			"initialMessages": ["Ok. Aguarde enquanto removo a(s) central(is) selecionada(s)."]
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/VERIFCLIENTE",
+			"idNavigationDetail": 10300,
+			"initialMessages": ["Aguarde enquanto eu localizo seu cadastro."]
+		}
+	]
+}

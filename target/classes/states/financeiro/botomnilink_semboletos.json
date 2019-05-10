@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/SEM_BOLETO",
+			"idNavigationDetail": 12501,
+			"initialMessages": ["Não localizei nenhum boleto pendente para você."]
+		}
+	]
+}

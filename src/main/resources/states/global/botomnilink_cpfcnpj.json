@@ -1,0 +1,15 @@
+{
+	"states":[
+		{
+			"id": "/CPFCNPJ",
+			"idNavigationDetail": 10200,
+			"initialMessages": ["Informe seu CPF ou CNPJ:"],
+			"inputErrorResponses":[
+				{"order":"1", "messages":["O documento que você informou não é válido. Digite o CPF ou CNPJ:"]},
+				{"order":"2", "messages": ["O documento informado continua inválido. Digite novamente o CPF ou CNPJ:"]}
+			],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/CANCELADO",
+			"idNavigationDetail": 11002,
+			"initialMessages": ["Vejo aqui que a série #serie# está cancelada"]
+		}
+	]
+}

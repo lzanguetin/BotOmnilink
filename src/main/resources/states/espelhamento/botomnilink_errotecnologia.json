@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_TEC",
+			"idNavigationDetail": 11004,
+			"initialMessages": ["Vejo que a tecnologia da série #serie# é incompatível com o serviço solicitado."]
+		}
+	]
+}

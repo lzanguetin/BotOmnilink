@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_PIN",
+			"idNavigationDetail": 10801,
+			"initialMessages": ["Desculpe, mas o PIN informado não é válido."]
+		}
+	]
+}

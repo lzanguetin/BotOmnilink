@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/BOLETOS_ATRASADOS",
+			"idNavigationDetail": 12702,
+			"initialMessages": ["Você possui apenas boletos atrasados."]
+		}
+	]
+}

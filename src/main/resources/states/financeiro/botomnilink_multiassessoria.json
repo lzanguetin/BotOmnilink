@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/MULTI_ASSESSORIA",
+			"idNavigationDetail": 12601,
+			"initialMessages": ["Você vai precisar dos telefones das assessorias financeiras para saber sobre seus títulos..."]
+		}
+	]
+}

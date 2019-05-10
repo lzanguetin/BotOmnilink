@@ -1,0 +1,57 @@
+{
+	"states":[
+		{
+			"id": "/INCLUSAO_ESP_WEB",
+			"idNavigationDetail": 11900,
+			"initialMessages": [{  
+                    "message": "Agora que o espelhamento de sinal foi concluído, você deseja realizar outro espelhamento ou retirada, falar de outros assuntos ou finalizar o atendimento?",
+                    "options": [  
+                        {  
+                            "text": "1 – Espelhamento de Sinal ou Retirada"
+                        },
+                        {  
+                            "text": "2 – Outros Assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }],
+			"inputErrorResponses":[
+                {"order":"1", "messages":[{  
+                    "message": "A opção que você informou não é válida.\nVocê deseja:",
+                    "options": [  
+                        {  
+                            "text": "1 – Espelhamento de Sinal ou Retirada"
+                        },
+                        {  
+                            "text": "2 – Outros Assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }]},
+				{"order":"2", "messages":[{  
+                    "message": "Você digitou novamente uma opção inválida.\nVocê quer:",
+                    "options": [  
+                        {  
+                            "text": "1 – Espelhamento de Sinal ou Retirada"
+                        },
+                        {  
+                            "text": "2 – Outros Assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }]}
+            ],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

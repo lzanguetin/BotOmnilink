@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_REMOVER",
+			"idNavigationDetail": 11401,
+			"initialMessages": ["Desculpe, mas houve um problema na remoção da(s) central(is) espelhada(s)."]
+		}
+	]
+}

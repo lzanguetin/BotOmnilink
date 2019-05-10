@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_INTEGRA_ESP",
+			"idNavigationDetail": 10901,
+			"initialMessages": ["Desculpe, mas houve um problema ao consultar as centrais que estão espelhadas."]
+		}
+	]
+}

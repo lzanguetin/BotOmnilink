@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/AGUARDA_ATIV",
+			"idNavigationDetail": 11001,
+			"initialMessages": ["Vejo aqui que a série #serie# ainda não está instalada."]
+		}
+	]
+}

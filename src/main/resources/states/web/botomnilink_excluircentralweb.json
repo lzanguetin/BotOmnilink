@@ -1,0 +1,48 @@
+{
+	"states":[
+		{
+			"id": "/EXCLUIR_CENTRAL_WEB",
+			"idNavigationDetail": 11300,
+			"initialMessages": [{  
+                    "message": "A única central espelhada é: #central#\nVocê ainda quer excluí-la?",
+                    "options": [  
+                        {  
+                            "text": "1 – Sim"
+                        },
+                        {  
+                            "text": "2 – Não"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }],
+			"inputErrorResponses":[
+                {"order":"1", "messages":[{  
+                    "message": "A opção que você informou não é válida. Eu preciso saber se você quer excluir esta central.",
+                    "options": [  
+                        {  
+                            "text": "1 – Sim"
+                        },
+                        {  
+                            "text": "2 – Não"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }]},
+				{"order":"2", "messages":[{  
+                    "message": "Você informou novamente uma opção inválida. Você quer excluir a central?",
+                    "options": [  
+                        {  
+                            "text": "1 – Sim"
+                        },
+                        {  
+                            "text": "2 – Não"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }]}
+            ],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

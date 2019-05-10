@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/INFO_ASSESSORIA",
+			"idNavigationDetail": 12602,
+			"initialMessages": ["Assessoria: #nome#\nTelefone: #contato#"]
+		}
+	]
+}

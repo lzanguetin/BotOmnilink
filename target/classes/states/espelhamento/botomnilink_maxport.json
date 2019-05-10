@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/MAX_PORT",
+			"idNavigationDetail": 11007,
+			"initialMessages": ["Vejo aqui que a série #serie# está com todas as portas espelhadas. Antes de incluir, será necessário excluir alguma central."]
+		}
+	]
+}

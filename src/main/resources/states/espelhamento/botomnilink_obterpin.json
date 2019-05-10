@@ -1,0 +1,15 @@
+{
+	"states":[
+		{
+			"id": "/OBTER_PIN",
+			"idNavigationDetail": 10700,
+			"initialMessages": ["Agora me informe o PIN:"],
+			"inputErrorResponses":[
+				{"order":"1", "messages":["O PIN informado não é valido. Digite o PIN:"]},
+				{"order":"2", "messages": ["O PIN continua inválido. Digite novamente o PIN:"]}
+			],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

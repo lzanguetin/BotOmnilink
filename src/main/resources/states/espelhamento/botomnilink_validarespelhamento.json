@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/VALIDAR_ESP",
+			"idNavigationDetail": 11000,
+			"initialMessages": ["Pronto!"]
+		}
+	]
+}

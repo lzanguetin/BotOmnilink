@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_ENVIO",
+			"idNavigationDetail": 12801,
+			"initialMessages": ["Desculpe, mas não localizei o seu email para enviar os boletos..."]
+		}
+	]
+}

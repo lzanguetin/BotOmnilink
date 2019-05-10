@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/SEM_ESP",
+			"idNavigationDetail": 11005,
+			"initialMessages": ["Não existe nenhuma central com sinal espelhado associado a série #serie#."]
+		}
+	]
+}

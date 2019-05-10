@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/SUSPENSO",
+			"idNavigationDetail": 11003,
+			"initialMessages": ["Vejo aqui que a série #serie# está suspensa"]
+		}
+	]
+}

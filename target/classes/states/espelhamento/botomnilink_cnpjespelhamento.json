@@ -1,0 +1,15 @@
+{
+	"states":[
+		{
+			"id": "/CNPJ_ESP",
+			"idNavigationDetail": 11600,
+			"initialMessages": ["Agora que já excluímos a(s) central(is).\nInforme o CNPJ da Empresa para onde deseja espelhar o sinal."],
+			"inputErrorResponses":[
+				{"order":"1", "messages":["O CNPJ que você informou não é válido. Digite novamente o CNPJ:"]},
+				{"order":"2", "messages": ["O CNPJ informado continua inválido. Digite outra vez o CNPJ:"]}
+			],
+			"maxInputErrorResponses":["Você pode consultar a lista de CNPJ das Centrais Cadastradas no Meu Omnilink, acesse 'meu.omnilink.com.br'. Aproveite e realize o espelhamento por lá. É rápido e fácil."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

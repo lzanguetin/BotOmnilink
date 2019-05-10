@@ -1,0 +1,15 @@
+{
+	"states":[
+		{
+			"id": "/SERIE_ESP",
+			"idNavigationDetail": 10500,
+			"initialMessages": ["Informe o número de série do equipamento:"],
+			"inputErrorResponses":[
+				{"order":"1", "messages":["O número de série informado não é valido.\nDigite o número de série do equipamento:"]},
+				{"order":"2", "messages": ["O número de série continua inválido.\nDigite novamente o número de série do equipamento:"]}
+			],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

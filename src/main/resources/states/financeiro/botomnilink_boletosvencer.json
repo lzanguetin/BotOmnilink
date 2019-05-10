@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/BOLETOS_VENCER",
+			"idNavigationDetail": 12703,
+			"initialMessages": ["Você possui apenas boletos que irão vencer."]
+		}
+	]
+}

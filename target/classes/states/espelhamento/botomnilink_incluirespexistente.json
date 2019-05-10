@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/INC_EXIST",
+			"idNavigationDetail": 12100,
+			"initialMessages": ["Ok. Aguarde enquanto efetuou o espelhamento do sinal."]
+		}
+	]
+}

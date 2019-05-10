@@ -1,0 +1,29 @@
+{
+    "states": [
+        {
+            "id": "/ESP_EXISTE",
+            "idNavigationDetail": 12000,
+            "customMessages":[
+                {
+                    "id":"inicial",
+                    "messages": [
+                        {
+                            "order":"1", 
+                            "messages":
+                                [
+                                    "Estou vendo que já existe espelhamento de sinal parao CNPJ e Porta informados.\nPara qual Central você quer espelhar o sinal?\n#esp_existe#"
+                                ]
+                        }
+                    ]
+                }
+            ],
+			"inputErrorResponses":[
+				{"order":"1", "messages":["A opção que você informou não é válida."]},
+				{"order":"2", "messages": ["Você informou novamente uma opção inválida."]}
+			],
+            "maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}
+

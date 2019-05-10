@@ -1,0 +1,17 @@
+{
+	"states":[
+		{
+			"id": "/ATENDENTE",
+			"idNavigationDetail":13000,
+			"initialMessages":["Tudo bem. Só um momento, vou transferir seu atendimento para outra pessoa."],
+			"customMessages":[
+              {
+                "id":"state_transferir",
+                "messages": [
+                	{"order":"1", "messages":["Ok, vou te transferir para a atendente"]}
+                ]
+              }
+			]
+		}
+	]
+}

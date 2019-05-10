@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/INFORME",
+			"idNavigationDetail": 12402,
+			"initialMessages": ["Se este pagamento ocorreu em até 72 horas peço que aguarde a baixa do pagamento, mas se ocorreu no prazo acima de 72 horas peço que envie um email com o comprovante de pagamento para 'comprovantes@omnilink.com.br'."]
+		}
+	]
+}

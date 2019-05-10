@@ -1,0 +1,10 @@
+{
+	"states":[
+		{
+			"id": "/ENVIAR_TITULOS",
+			"idNavigationDetail": 12800,
+			"initialMessages": ["Aguarde um instante enquanto os envio para você."],
+			"maxInputErrorResponses":["Desculpe, mas houve um problema no envio de seus boletos..."]
+		}
+	]
+}

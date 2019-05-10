@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/FONE_ASSESSORIA",
+			"idNavigationDetail": 12600,
+			"maxInputErrorResponses":["Desculpe, mas houve um problema ao consultar os telefones da assessoria financeira..."]
+		}
+	]
+}

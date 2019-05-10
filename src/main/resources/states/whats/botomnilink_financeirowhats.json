@@ -1,0 +1,57 @@
+{
+	"states":[
+		{
+			"id": "/FINANCEIRO_WHATS",
+			"idNavigationDetail": 12400,
+			"initialMessages": [{  
+                    "message": "Alguns serviços financeiros podem ser solicitados através do Meu Omnilink. Acesse meu.omnilink.com.br e procure por nossos serviços financeiros por lá. É bem fácil, aproveite.\nVocê deseja falar sobre:",
+                    "options": [  
+                        {  
+                            "text": "1 – Segunda via de Boletos"
+                        },
+                        {  
+                            "text": "2 – Informar um Pagamento"
+                        },
+						{  
+                            "text": "3 – Outros Assuntos Financeiros"
+                        }
+                    ],
+                    "messageType": "TEXT_ONLY"
+                }],
+			"inputErrorResponses":[
+                {"order":"1", "messages":[{  
+                    "message": "A opção que você informou não é válida.\nSobre qual assunto quer falar:",
+                    "options": [  
+                        {  
+                            "text": "1 – Segunda via de Boletos"
+                        },
+                        {  
+                            "text": "2 – Informar um Pagamento"
+                        },
+						{  
+                            "text": "3 – Outros Assuntos Financeiros"
+                        }
+                    ],
+                    "messageType": "TEXT_ONLY"
+                }]},
+				{"order":"2", "messages":[{  
+                    "message": "Você informou novamente uma opção inválida.\nEu preciso saber sobre qual assunto você quer falar para prosseguir com o seu atendimento:",
+                    "options": [  
+                        {  
+                            "text": "1 – Segunda via de Boletos"
+                        },
+                        {  
+                            "text": "2 – Informar um Pagamento"
+                        },
+						{  
+                            "text": "3 – Outros Assuntos Financeiros"
+                        }
+                    ],
+                    "messageType": "TEXT_ONLY"
+                }]}
+            ],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

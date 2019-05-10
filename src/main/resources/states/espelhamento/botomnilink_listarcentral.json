@@ -1,0 +1,30 @@
+{
+    "states": [
+        {
+            "id": "/LISTR_CENTRAL",
+            "idNavigationDetail": 11200,
+            "customMessages":[
+                {
+                    "id":"inicial",
+                    "messages": [
+                        {
+                            "order":"1", 
+                            "messages":
+                                [
+                                    "Informe qual Central deseja excluir. Caso queira excluir mais de uma, informe-as desta forma: 1, 2, 3.\n#listr_central#"
+                                ]
+                        }
+                    ]
+                }
+            ],
+			"inputErrorResponses":[
+				{"order":"1", "messages":["A opção que você informou não é válida."]},
+				{"order":"2", "messages": ["Você informou novamente uma opção inválida."]}
+			],
+            "maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}
+
+

@@ -1,0 +1,57 @@
+{
+	"states":[
+		{
+			"id": "/FINALIZAR_ESP_WHATS",
+			"idNavigationDetail": 11100,
+			"initialMessages": [{  
+                    "message": "Você deseja:",
+                    "options": [  
+                        {  
+                            "text": "1 – Consultar outro número de série"
+                        },
+                        {  
+                            "text": "2 – Falar de outros assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar atendimento"
+                        }
+                    ],
+                    "messageType": "TEXT_ONLY"
+                }],
+			"inputErrorResponses":[
+                {"order":"1", "messages":[{  
+                    "message": "A opção digitada não é valida.\nVocê deseja:",
+                    "options": [  
+                        {  
+                            "text": "1 – Consultar outro número de série"
+                        },
+                        {  
+                            "text": "2 – Falar de outros assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar atendimento"
+                        }
+                    ],
+                    "messageType": "TEXT_ONLY"
+                }]},
+				{"order":"2", "messages":[{  
+                    "message": "A opção digitada continua inválida.\nEu preciso que informe o que quer fazer:",
+                    "options": [  
+                        {  
+                            "text": "1 – Consultar outro número de série"
+                        },
+                        {  
+                            "text": "2 – Falar de outros assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar atendimento"
+                        }
+                    ],
+                    "messageType": "TEXT_ONLY"
+                }]}
+            ],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/INCLUIR_ESP",
+			"idNavigationDetail": 11800,
+			"initialMessages": ["Pronto! O espelhamento do sinal foi realizado com sucesso.\nPeço que confirme com a Empresa se está tudo Ok. Caso contrário, retorne seu contato conosco."]
+		}
+	]
+}

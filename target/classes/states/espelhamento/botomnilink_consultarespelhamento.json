@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/CONSULTAR_ESP",
+			"idNavigationDetail": 10900,
+			"initialMessages": ["Agora vou consultar as centrais que estão espelhadas.\nAguarde mais um instante."]
+		}
+	]
+}

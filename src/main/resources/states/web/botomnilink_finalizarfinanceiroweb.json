@@ -1,0 +1,57 @@
+{
+	"states":[
+		{
+			"id": "/FINALIZAR_FINANCEIRO_WEB",
+			"idNavigationDetail": 12900,
+			"initialMessages": [{  
+                    "message": "Agora que concluí sua solicitação, você deseja:",
+                    "options": [  
+                        {  
+                            "text": "1 – Tratar outro assunto financeiro"
+                        },
+                        {  
+                            "text": "2 – Falar de outros assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }],
+			"inputErrorResponses":[
+                {"order":"1", "messages":[{  
+                    "message": "A opção digitada não é valida.\nVocê deseja:",
+                    "options": [  
+                        {  
+                            "text": "1 – Tratar outro assunto financeiro"
+                        },
+                        {  
+                            "text": "2 – Falar de outros assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }]},
+				{"order":"2", "messages":[{  
+                    "message": "A opção digitada continua inválida.\nEu preciso que informe o que quer fazer:",
+                    "options": [  
+                        {  
+                            "text": "1 – Tratar outro assunto financeiro"
+                        },
+                        {  
+                            "text": "2 – Falar de outros assuntos"
+                        },
+						{  
+                            "text": "3 – Finalizar"
+                        }
+                    ],
+                    "messageType": "OPTION_BOX"
+                }]}
+            ],
+			"maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
+			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]
+		}
+	]
+}

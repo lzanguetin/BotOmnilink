@@ -1,0 +1,10 @@
+{
+	"states":[
+		{
+			"id": "/VALIDAR_PIN",
+			"idNavigationDetail": 10800,
+			"initialMessages": ["Aguarde mais um instante enquanto eu valido o PIN e consulto as Centrais Espelhadas no Equipamento."],
+			"maxInputErrorResponses":["Desculpe, mas houve um problema na validação do PIN."]
+		}
+	]
+}

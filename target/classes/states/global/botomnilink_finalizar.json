@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/FINALIZAR",
+			"idNavigationDetail": 9999,
+			"initialMessages": ["A Omnilink agradece o sue contato. Até logo!"]
+		}
+	]
+}
