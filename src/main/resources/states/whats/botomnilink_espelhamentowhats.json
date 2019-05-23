@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/ESPELHAMENTO_WHATS",
-			"idNavigationDetail": 10400,
+			"idNavigationDetail": 10401,
 			"initialMessages": [{  
                     "message": "Você deseja efetuar ou retirar o espelhamento de sinal?",
                     "options": [  

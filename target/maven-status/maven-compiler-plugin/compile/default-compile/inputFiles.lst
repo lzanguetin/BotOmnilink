@@ -1,5 +1,6 @@
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ValidaEspelhamento.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\transfer\OAgendamento.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\global\SemDados.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\transfer\OCancelamento.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\DadosTitulos.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\global\Finalizar.java
@@ -49,6 +50,7 @@ C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnil
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\web\EspelhamentoWeb.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\InclusaoEspWhats.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ConsultarContrato.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\TransferType.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\global\Outros.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\utils\TipoEspelhamento.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\IncluirEspWhats.java
@@ -111,4 +113,5 @@ C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnil
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\CentralInexistente.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\RetiradaEspWhats.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\BotOmnilink.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\TransferPropWhats.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\web\MenuWeb.java

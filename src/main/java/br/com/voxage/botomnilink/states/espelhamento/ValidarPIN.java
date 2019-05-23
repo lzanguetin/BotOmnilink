@@ -8,7 +8,6 @@ import br.com.voxage.botomnilink.BotOmnilinkIntegration;
 import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.botomnilink.models.PIN;
-import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -39,7 +38,7 @@ public class ValidarPIN {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
 					}	
 				}catch(Exception e) {
-					inputResult.setResult(BotInputResult.Result.ERROR);
+					botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 				}				
 				return botStateFlow;
 			}));
@@ -47,6 +46,7 @@ public class ValidarPIN {
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.CONSULTAR_ESP, "#CONSULTAR_ESP");
 				put(BotOmnilink.STATES.ERRO_PIN, "#ERRO_PIN");
+				put(BotOmnilink.STATES.SDADOS, "#SDADOS");
                 put("MAX_INPUT_ERROR", "/ATENDENTE");
 			}});
 		}};

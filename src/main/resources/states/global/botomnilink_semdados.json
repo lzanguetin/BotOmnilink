@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/SDADOS",
+			"idNavigationDetail": 6666,
+			"initialMessages": ["Não encontramos os dados em nosso sistema."]
+		}
+	]
+}

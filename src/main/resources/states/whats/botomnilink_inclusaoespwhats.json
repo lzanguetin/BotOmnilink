@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/INCLUSAO_ESP_WHATS",
-			"idNavigationDetail": 11900,
+			"idNavigationDetail": 11902,
 			"initialMessages": [{  
                     "message": "Agora que o espelhamento de sinal foi concluído, você deseja realizar outro espelhamento ou retirada, falar de outros assuntos ou finalizar o atendimento?",
                     "options": [  

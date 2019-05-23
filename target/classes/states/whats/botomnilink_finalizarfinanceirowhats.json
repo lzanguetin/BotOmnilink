@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/FINALIZAR_FINANCEIRO_WHATS",
-			"idNavigationDetail": 12900,
+			"idNavigationDetail": 12901,
 			"initialMessages": [{  
                     "message": "Agora que concluí sua solicitação, você deseja:",
                     "options": [  

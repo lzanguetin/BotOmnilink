@@ -40,7 +40,7 @@ public class ObterTitulos {
 					}
 
 				}catch(Exception e) {
-					inputResult.setResult(BotInputResult.Result.ERROR);
+					botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 				}
 				return botStateFlow;
 			}));
@@ -49,6 +49,7 @@ public class ObterTitulos {
 				put(BotOmnilink.STATES.SEM_BOLETO, "#SEM_BOLETO");
 				put(BotOmnilink.STATES.FONE_ASSESSORIA, "#FONE_ASSESSORIA");
 				put(BotOmnilink.STATES.ESCOLHER_TITULO, "#ESCOLHER_TITULO");
+				put(BotOmnilink.STATES.SDADOS, "#SDADOS");
 				put("MAX_INPUT_ERROR", "#ATENDENTE");
 			}});
 		}};

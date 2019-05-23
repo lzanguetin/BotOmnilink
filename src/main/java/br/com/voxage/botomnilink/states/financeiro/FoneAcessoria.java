@@ -42,7 +42,7 @@ public class FoneAcessoria {
 						botStateFlow.navigationKey = BotOmnilink.STATES.INFO_ASSESSORIA;
 					}
 				}catch(Exception e) {
-					inputResult.setResult(BotInputResult.Result.ERROR);
+					botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 				}				
 				return botStateFlow;
 			}));
@@ -51,6 +51,7 @@ public class FoneAcessoria {
 				put(BotOmnilink.STATES.ESCOLHER_TITULO, "#ESCOLHER_TITULO");
 				put(BotOmnilink.STATES.MULTI_ASSESSORIA, "#MULTI_ASSESSORIA");
 				put(BotOmnilink.STATES.INFO_ASSESSORIA, "#INFO_ASSESSORIA");
+				put(BotOmnilink.STATES.SDADOS, "#SDADOS");
                 put("MAX_INPUT_ERROR", "/ATENDENTE");
 			}});
 		}};

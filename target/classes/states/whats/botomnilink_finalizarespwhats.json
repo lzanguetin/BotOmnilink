@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/FINALIZAR_ESP_WHATS",
-			"idNavigationDetail": 11100,
+			"idNavigationDetail": 11101,
 			"initialMessages": [{  
                     "message": "Você deseja:",
                     "options": [  

@@ -35,13 +35,18 @@ public class ConsultaEspelhamento {
 						customerInfo = BotOmnilinkIntegration.getCentrais(bot,dadosFluxo.getSerie());
 						bot.setEspelhamento(customerInfo);
 						
-						botStateFlow.navigationKey = BotOmnilink.STATES.VALIDAR_ESP;
+						if(bot.getEspelhamento().getQtdeEspelhamentos() == 0) {
+							botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
+						}else {
+							botStateFlow.navigationKey = BotOmnilink.STATES.VALIDAR_ESP;
+						}	
 					}catch(Exception e) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 					}
 				}catch(Exception e) {
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 				}
+				
 				return botStateFlow;
 			}));
 			

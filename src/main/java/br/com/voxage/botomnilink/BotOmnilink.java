@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import com.google.gson.Gson;
+
 import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
 
 import br.com.voxage.botomnilink.models.AlteradoExistente;
@@ -32,6 +34,7 @@ import br.com.voxage.chat.botintegration.ISearchEngineCredentials;
 import br.com.voxage.chat.botintegration.TextSearchEngine;
 import br.com.voxage.chat.botintegration.annotation.Bot;
 import br.com.voxage.chat.botintegration.entities.BotImageType;
+import br.com.voxage.botomnilink.models.TransferType;
 import br.com.voxage.vbot.BotContext;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -64,6 +67,9 @@ public class BotOmnilink extends VBot {
 	private Incluir incluir;
 	private AlteradoExistente alter;
 	private EspelhamentoLista list;
+	private TransferType type;
+	private String option;
+	private String group;
 	
 	 public interface STATES{
 		 //start
@@ -109,6 +115,7 @@ public class BotOmnilink extends VBot {
 		 
 		//tipos de atendimento
 		 String FINANCEIRO = "financeiro";
+		 String SDADOS = "sdados";
 		 
 		 //campos globais
 		 String TOKEN = "token";
@@ -440,5 +447,36 @@ public class BotOmnilink extends VBot {
 
 	public void setList(EspelhamentoLista list) {
 		this.list = list;
+	}
+
+	public TransferType getType() {
+		return type;
+	}
+
+	public void setType(TransferType type) {
+		this.type = type;
+	}
+	
+    public void transferType() {    	
+        Gson gson = new Gson();
+        TransferType type = gson.fromJson(jsonCustomParams, TransferType.class);
+		
+        setType(type);
+    }
+
+	public String getOption() {
+		return option;
+	}
+
+	public void setOption(String option) {
+		this.option = option;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String string) {
+		this.group = string;
 	}
 }

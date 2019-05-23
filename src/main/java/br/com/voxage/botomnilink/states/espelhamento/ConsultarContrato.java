@@ -44,7 +44,7 @@ public class ConsultarContrato {
 						dadosFluxo.setMax(aux);
 						botStateFlow.navigationKey = BotOmnilink.STATES.SERIE_ESP;
 					}else {
-						botStateFlow.navigationKey = "#TERMINATE";
+						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 					}
 				}
 				return botStateFlow;
@@ -54,6 +54,7 @@ public class ConsultarContrato {
 				put(BotOmnilink.STATES.OBTER_PIN, "/OBTER_PIN");
 				put(BotOmnilink.STATES.CONSULTAR_ESP, "/CONSULTAR_ESP");
 				put(BotOmnilink.STATES.SERIE_ESP, "/SERIE_ESP");
+				put(BotOmnilink.STATES.SDADOS, "/SDADOS");
                 put("MAX_INPUT_ERROR", "/TERMINATE");
                 put("MAX_NO_INPUT", "/TERMINATE");
 			}});

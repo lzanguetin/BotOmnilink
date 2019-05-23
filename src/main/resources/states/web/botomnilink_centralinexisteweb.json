@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/CENT_INEXIST_WEB",
-			"idNavigationDetail": 12200,
+			"idNavigationDetail": 12201,
 			"initialMessages": [{  
                     "message": "Você deseja:",
                     "options": [  

@@ -23,12 +23,12 @@ public class MenuWhats {
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
 				String userInput = userInputs.getConcatenatedInputs();
-				dadosFluxo.setOption(userInput);
 				dadosFluxo.setMax(1);
 				
 				switch(userInput) {
 					case"1 - Agendamento":
 						try {
+							dadosFluxo.setOption("1");
 							botInputResult.setIntentName(BotOmnilink.STATES.AGENDAMENTO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -36,6 +36,7 @@ public class MenuWhats {
 						break;
 					case"2 - Cancelamento de Contrato":
 						try {
+							dadosFluxo.setOption("2");
 							botInputResult.setIntentName(BotOmnilink.STATES.CANCELAMENTO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -59,6 +60,7 @@ public class MenuWhats {
 						break;
 					case"5 - Suporte":
 						try {
+							dadosFluxo.setOption("5");
 							botInputResult.setIntentName(BotOmnilink.STATES.SUPORTE);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -66,6 +68,7 @@ public class MenuWhats {
 						break;
 					case"6 - Ativação":
 						try {
+							dadosFluxo.setOption("6");
 							botInputResult.setIntentName(BotOmnilink.STATES.ATIVACAO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);

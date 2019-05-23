@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/FINANCEIRO_WHATS",
-			"idNavigationDetail": 12400,
+			"idNavigationDetail": 12401,
 			"initialMessages": [{  
                     "message": "Alguns serviços financeiros podem ser solicitados através do Meu Omnilink. Acesse meu.omnilink.com.br e procure por nossos serviços financeiros por lá. É bem fácil, aproveite.\nVocê deseja falar sobre:",
                     "options": [  
