@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/SEM_SERIE",
+			"idNavigationDetail": 5555,
+			"initialMessages": ["Não o localizei, vamos tentar novamente"]
+		}
+	]
+}

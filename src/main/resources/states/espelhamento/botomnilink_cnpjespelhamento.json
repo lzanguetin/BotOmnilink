@@ -3,7 +3,7 @@
 		{
 			"id": "/CNPJ_ESP",
 			"idNavigationDetail": 11600,
-			"initialMessages": ["Agora que já excluímos a(s) central(is).\nInforme o CNPJ da Empresa para onde deseja espelhar o sinal."],
+			"initialMessages": ["Informe o CNPJ da Empresa para onde deseja espelhar o sinal."],
 			"inputErrorResponses":[
 				{"order":"1", "messages":["O CNPJ que você informou não é válido. Digite novamente o CNPJ:"]},
 				{"order":"2", "messages": ["O CNPJ informado continua inválido. Digite outra vez o CNPJ:"]}

@@ -22,8 +22,12 @@ public class MenuWeb {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				dadosFluxo.setMax(1);
+				dadosFluxo.setMenu(userInput);
+				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
 					case"1 - Agendamento":
@@ -77,6 +81,9 @@ public class MenuWeb {
 					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
+				
+				bot.getUserSession().put("CLIENTINFO_Transfer", userInput);
+				
 				return botInputResult;
 			});
 			

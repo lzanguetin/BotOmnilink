@@ -28,6 +28,7 @@ public class ObterPIN {
 				if((dadosFluxo.getPin().length() >= 4) && (dadosFluxo.getPin().length() <= 6)){
 					botInputResult.setIntentName(BotOmnilink.STATES.VALIDAR_PIN);
 				}else{
+					bot.getUserSession().put("CLIENTINFO_Transfer", "Obter PIN - PIN Inválido");
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
 				

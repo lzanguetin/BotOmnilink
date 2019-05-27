@@ -53,8 +53,11 @@ public class ListarCentrais {
 				String userInput = userInputs.getConcatenatedInputs();
 				dadosFluxo.setExcluir(userInput);
 				
-				botInputResult.setIntentName(BotOmnilink.STATES.REMOVER_ESP);
-
+				if(dadosFluxo.getExcluir().matches("[0-9,]+")) {
+					botInputResult.setIntentName(BotOmnilink.STATES.REMOVER_ESP);
+				}else {
+					botInputResult.setResult(BotInputResult.Result.ERROR);
+				}
 				
 				return botInputResult;
 			});

@@ -20,34 +20,34 @@ public class CentralInexistWhats {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				switch(userInput) {
-				case"1 – Alterar o CNPJ e a Porta para Espelhar o Sinal\r\n" + 
-						"para outra Central":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
-					}catch(Exception e) {
+					case"1 – Alterar o CNPJ e a Porta para Espelhar o Sinal\r\n" + 
+							"para outra Central":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2 – Falar de Outros Assuntos":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3 – Finalizar Atendimento":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 – Falar de Outros Assuntos":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 – Finalizar Atendimento":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
+				}
 				return botInputResult;
 			});
 			

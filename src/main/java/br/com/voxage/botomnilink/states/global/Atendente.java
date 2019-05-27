@@ -34,9 +34,13 @@ public class Atendente {
             setPreFunction(botState -> {
 
                 log.info("=================== RESUMO PARA ATENDENTE =================== ", bot.getSessionId());
-                if (bot.getUserSession().containsKey("CLIENTINFO_Mensagem Cliente")) {
-                    log.info("Mensagem Cliente: " + bot.getUserSession().get("CLIENTINFO_Mensagem Cliente"), bot.getSessionId());
-                }
+                
+                if (bot.getUserSession().containsKey("CLIENTINFO_CPF-CNPJ"))
+                    log.info("CPF-CNPJ: " + bot.getUserSession().get("CLIENTINFO_CPF-CNPJ"), bot.getSessionId());
+                   
+                if (bot.getUserSession().containsKey("CLIENTINFO_Transfer"))
+                	log.info("Transf: " + bot.getUserSession().get("CLIENTINFO_Transfer"), bot.getSessionId());
+                
                 log.info("============================================================= ", bot.getSessionId());
 
                 BotStateFlow state = new BotStateFlow();
@@ -96,8 +100,8 @@ public class Atendente {
                             log.info("BotNameToTransfer=" + CHAT_TRANSFER_TELEGRAM, bot.getSessionId());
                         } else {
                             state.flow = BotStateFlow.Flow.END_CURRENT_STATE;
-                            state.navigationKey = "/TERMINATE";
-                            log.info("TERMINATE", bot.getSessionId());
+                            state.navigationKey = "#FORA_HORARIO";
+                            log.info("FORA_HORARIO", bot.getSessionId());
                         }
                     } else if (bot.getSessionId().contains("whatsapp")) {
                         log.info("============================================================= ", bot.getSessionId());
@@ -109,8 +113,8 @@ public class Atendente {
                             log.info("BotNameToTransfer=" + CHAT_TRANSFER_WHATSAPP, bot.getSessionId());
                         } else {
                             state.flow = BotStateFlow.Flow.END_CURRENT_STATE;
-                            state.navigationKey = "/TERMINATE";
-                            log.info("TERMINATE", bot.getSessionId());
+                            state.navigationKey = "#FORA_HORARIO";
+                            log.info("FORA_HORARIO", bot.getSessionId());
                         }
                     } else {
                         log.info("============================================================= ", bot.getSessionId());
@@ -120,22 +124,24 @@ public class Atendente {
                             state.flow = BotStateFlow.Flow.TRANSFER;
                             bot.setBotNameToTransfer(CHAT_TRANSFER_WEB);
                             log.info("BotNameToTransfer=" + bot.getBotNameToTransfer(), bot.getSessionId());
+                            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                            System.out.println(bot.getUserSession().get("textInfo"));
                         } else {
                             state.flow = BotStateFlow.Flow.END_CURRENT_STATE;
-                            state.navigationKey = "/TERMINATE";
-                            log.info("TERMINATE", bot.getSessionId());
+                            state.navigationKey = "#FORA_HORARIO";
+                            log.info("FORA_HORARIO", bot.getSessionId());
                         }
                     }
                 }catch(Exception e){
                     log.error("Erro ao tentar transferir para etendente", e, bot.getSessionId());
                     state.flow = BotStateFlow.Flow.END_CURRENT_STATE;
-                    state.navigationKey = "/TERMINATE";
+                    state.navigationKey = "#FORA_HORARIO";
                 }
                 return state;
             });
             setNextNavigationMap(new HashMap<String, String>() {
                 {
-                    put("/TERMINATE", "/TERMINATE");
+                    put("#FORA_HORARIO", "#FORA_HORARIO");
                 }
             });
         }

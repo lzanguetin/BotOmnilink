@@ -22,7 +22,11 @@ public class EspelhamentoWhats {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
+				
+				if(bot.getMicro() != null) {
+					bot.getMicro().setAccessToken(null);
+				}
 				
 				switch(userInput) {
 					case"1 - Efetuar":

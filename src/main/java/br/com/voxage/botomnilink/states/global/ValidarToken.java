@@ -28,9 +28,6 @@ public class ValidarToken {
 					customerInfo = BotOmnilinkIntegration.validarUsuario(bot);
 					bot.setToken(customerInfo);
 					
-					System.out.println(customerInfo.getAcessToken());
-					System.out.println(bot.getToken().getAcessToken());
-					
 					botStateFlow.navigationKey = BotOmnilink.STATES.CPFCNPJ;
 				}catch(Exception e) {
 					botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;					

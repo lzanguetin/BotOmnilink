@@ -20,63 +20,69 @@ public class OutrosWeb {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				String auto = BotOmnilink.readString("id.flag.obterAuto");
 				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
+				
 				switch(userInput) {
-				case"1 - Agendamento":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.OAGENDAMENTO);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 - Cancelamento de Contrato":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.OCANCELAMENTO);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 - Espelhamento de Sinal":
-					try {
-						if(auto == "true") {
-							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
-						}else {
-							botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
+					case"1 - Agendamento":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OAGENDAMENTO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"4 - Financeiro":
-					try {
-						if(auto == "true") {
-							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINANCEIRO);
-						}else {
-							botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
+						break;
+					case"2 - Cancelamento de Contrato":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OCANCELAMENTO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"5 - Suporte":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.OSUPORTE);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"6 - Ativação":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.OATIVACAO);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
-			}
+						break;
+					case"3 - Espelhamento de Sinal":
+						try {
+							if("true".equals(auto)) {
+								botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
+							}else {
+								botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
+							}
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"4 - Financeiro":
+						try {
+							if("true".equals(auto)) {
+								botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINANCEIRO);
+							}else {
+								botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
+							}
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"5 - Suporte":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OSUPORTE);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"6 - Ativação":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OATIVACAO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
+						botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
+				}
+				
+				bot.getUserSession().put("CLIENTINFO_Transfer", userInput);
+				
 				return botInputResult;
 			});
 			

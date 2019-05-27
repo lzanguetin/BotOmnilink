@@ -38,7 +38,13 @@ public class VerificaCliente {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
 					}					
 				}catch(Exception e){
-					botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
+					if(bot.getError() == 500) {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Verifica Cliente - Erro de Integração");
+						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
+					}else {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Verifica Cliente - Cliente não Localizado");
+						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
+					}					
 				}
 				return botStateFlow;
 			}));

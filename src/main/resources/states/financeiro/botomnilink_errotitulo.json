@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_ENVIO",
+			"idNavigationDetail": 12402,
+			"initialMessages": ["Desculpe, mas houve um problema ao consultar seus boletos."]
+		}
+	]
+}

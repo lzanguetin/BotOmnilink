@@ -35,15 +35,18 @@ public class ConsultaEspelhamento {
 						customerInfo = BotOmnilinkIntegration.getCentrais(bot,dadosFluxo.getSerie());
 						bot.setEspelhamento(customerInfo);
 						
-						if(bot.getEspelhamento().getQtdeEspelhamentos() == 0) {
+						botStateFlow.navigationKey = BotOmnilink.STATES.VALIDAR_ESP;	
+					}catch(Exception e) {
+						if(bot.getError() == 500) {
+							bot.getUserSession().put("CLIENTINFO_Transfer", "Consultar Espelhamento - Erro Integração");
 							botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 						}else {
-							botStateFlow.navigationKey = BotOmnilink.STATES.VALIDAR_ESP;
+							bot.getUserSession().put("CLIENTINFO_Transfer", "Consultar Espelhamento - Erro Integração");
+							botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 						}	
-					}catch(Exception e) {
-						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 					}
 				}catch(Exception e) {
+					bot.getUserSession().put("CLIENTINFO_Transfer", "Consultar Espelhamento - Erro Integração");
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 				}
 				
@@ -53,6 +56,7 @@ public class ConsultaEspelhamento {
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.VALIDAR_ESP, "#VALIDAR_ESP");
 				put(BotOmnilink.STATES.ERRO_INTEGRA_ESP, "#ERRO_INTEGRA_ESP");
+				put(BotOmnilink.STATES.SDADOS, "#SDADOS");
 			}});
 		}};
 	}

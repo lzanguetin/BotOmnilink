@@ -28,6 +28,7 @@ public class SerieEspelhamento {
 					if((Integer.parseInt(dadosFluxo.getSerie()) > 0) && (dadosFluxo.getSerie().length() >= 1) && (dadosFluxo.getSerie().length() <= 24)) {
 						botInputResult.setIntentName(BotOmnilink.STATES.CONS_CONTRATO);
 					}else {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Obter Série Espelhamento - Série Inválida");
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 					}
 					return botInputResult;

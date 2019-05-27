@@ -20,26 +20,26 @@ public class IncluirEspWhats {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				switch(userInput) {
-				case"Sim":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
-					}catch(Exception e) {
+					case"Sim":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"Não":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.RETIRAR_ESP);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"Não":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.RETIRAR_ESP);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
+				}
 				return botInputResult;
 			});
 			

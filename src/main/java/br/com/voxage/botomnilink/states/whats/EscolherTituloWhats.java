@@ -22,36 +22,39 @@ public class EscolherTituloWhats {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				switch(userInput) {
-				case"1 – Boletos a Vencer":
-					try {
-						dadosFluxo.setStatus(1);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
+					case"1 – Boletos a Vencer":
+						try {
+							dadosFluxo.setStatus(1);
+							dadosFluxo.setTitle(1);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2 – Boletos Atrasados":
+						try {
+							dadosFluxo.setStatus(2);
+							dadosFluxo.setTitle(2);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3 – Todos os Boletos Pendentes":
+						try {
+							dadosFluxo.setStatus(3);
+							dadosFluxo.setTitle(3);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 – Boletos Atrasados":
-					try {
-						dadosFluxo.setStatus(2);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 – Todos os Boletos Pendentes":
-					try {
-						dadosFluxo.setStatus(3);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
+				}
 				return botInputResult;
 			});
 			

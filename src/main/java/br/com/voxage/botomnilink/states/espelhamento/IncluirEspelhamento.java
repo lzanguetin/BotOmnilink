@@ -34,21 +34,25 @@ public class IncluirEspelhamento {
 				
 				bot.setIncluir(incluir);
 				
+				bot.getUserSession().put("CLIENTINFO_Transfer", dadosFluxo.getMenu());
+				
 				Incluido customerInfo = null;
 				
 				try {
 					customerInfo = BotOmnilinkIntegration.addEspelhamentoCnpj(bot, incluir);
 					bot.setInc(customerInfo);
-					if(bot.getInc().getStatus() == "-2"){
+					if("-2".equals(bot.getInc().getStatus())){
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Erro na Execução");
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INC;
-					}else if(bot.getInc().getStatus() == "1"){
+					}else if("1".equals(bot.getInc().getStatus())){
 						botStateFlow.navigationKey = BotOmnilink.STATES.INCLUSAO_ESP;
-					}else if(bot.getInc().getStatus() == "0") {
+					}else if("0".equals(bot.getInc().getStatus())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ESP_EXISTE;
 					}else {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CENT_INEXIST;
 					}
 				}catch(Exception e) {
+					bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Erro de Execução");
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INC;
 				}				
 				return botStateFlow;

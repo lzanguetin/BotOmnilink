@@ -2,7 +2,7 @@ package br.com.voxage.botomnilink.models;
 
 public class Contratos {
 	private String contratoId;
-	private String status;
+	private Integer status;
 	private String tecnologiaId;
 	private String permiteEspelhamentoSinal;
 	
@@ -14,11 +14,11 @@ public class Contratos {
 		this.contratoId = contratoId;
 	}
 	
-	public String getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	

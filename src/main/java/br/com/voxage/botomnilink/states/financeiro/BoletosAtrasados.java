@@ -3,6 +3,7 @@ package br.com.voxage.botomnilink.states.financeiro;
 import java.util.HashMap;
 
 import br.com.voxage.botomnilink.BotOmnilink;
+import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -17,7 +18,11 @@ public class BoletosAtrasados {
 			
 			setPosFunction((botState, inputResult)->{
 				BotStateFlow botStateFlow = new BotStateFlow();
+				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
+				
+				dadosFluxo.setTitle(2);
+				
 				botStateFlow.navigationKey = BotOmnilink.STATES.ENVIAR_TITULOS;
 				
 				return botStateFlow;

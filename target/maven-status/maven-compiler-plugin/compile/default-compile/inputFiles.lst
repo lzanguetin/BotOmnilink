@@ -51,8 +51,10 @@ C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnil
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\InclusaoEspWhats.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ConsultarContrato.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\TransferType.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ErroContrato.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\global\Outros.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\utils\TipoEspelhamento.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\SemSerie.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\IncluirEspWhats.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\EspelhamentoLista.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\web\FinalizarFinanceiroWeb.java
@@ -62,6 +64,7 @@ C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnil
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\Central.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\InclusaoEsp.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ListarCentrais.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\financeiro\ErroTitulo.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\financeiro\FoneAcessoria.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\Incluir.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\EscolherTituloWhats.java
@@ -84,12 +87,14 @@ C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnil
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\Suspenso.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ValidarPIN.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\ExcluirCentralWhats.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\financeiro\ErroAssessoria.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\global\ValidarToken.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\EspelhamentoExiste.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\RemoverEspelhamento.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\transfer\Cancelamento.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\Token.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\CnpjEspelhamento.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\global\ForaDeHorario.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\web\CentralInexistWeb.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\financeiro\BoletosAtrasados.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\Cliente.java

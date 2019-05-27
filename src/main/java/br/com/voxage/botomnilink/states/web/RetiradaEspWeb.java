@@ -22,8 +22,11 @@ public class RetiradaEspWeb {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				dadosFluxo.setOpEspelha(userInput);
+				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
 					case"1 – Retirada ou Espelhamento de Sinal":

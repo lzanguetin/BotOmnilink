@@ -35,7 +35,7 @@ public class AguardaAtivacao {
 			});
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
-				put(BotOmnilink.STATES.TIPO_FINALIZAR_ESP, "#TIPO_FINALIZAR_ESPTIPO_FINALIZAR_ESP");
+				put(BotOmnilink.STATES.TIPO_FINALIZAR_ESP, "#TIPO_FINALIZAR_ESP");
 			}});
 		}};
 	}

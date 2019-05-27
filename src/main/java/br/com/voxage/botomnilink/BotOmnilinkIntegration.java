@@ -52,7 +52,8 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Token.class);
 	                                break;
 	                        	case 500:
-	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));	
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
@@ -95,7 +96,10 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Clientes.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        	case 404:
+	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -139,7 +143,10 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Titulos.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        	case 404:
+	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -183,7 +190,10 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Contratos.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        	case 404:
+	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -227,7 +237,10 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, PIN.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        	case 404:
+	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -271,7 +284,7 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, TokenMicro.class);
 	                                break;
 	                        	case 500:
-	                        	case 404:
+	                        		bot.setError(500);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -315,7 +328,10 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Espelhamento.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        	case 404:
+	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -359,7 +375,10 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Assessoria.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        	case 404:
+	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );

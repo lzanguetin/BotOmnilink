@@ -21,35 +21,38 @@ public class TecValidaWeb {
 				BotInputResult botInputResult = new BotInputResult();
 				Espelhamento esp = bot.getEspelhamento();
 				botInputResult.setResult(BotInputResult.Result.OK);
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
+				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
-				case"Sim":
-					try {
-						if((esp.getQtdeEspelhamentos() > 0) && (esp.getQtdeEspelhamentos() >= 2)){
-							botInputResult.setIntentName(BotOmnilink.STATES.LISTR_CENTRAL);
-						}else {
-							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_EXCLUIR_CENTRAL);
-						}	
-					}
-					catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"Não":
-					try {
-						if(esp.getQtdeEspelhamentos() >= 8) {
-							botInputResult.setIntentName(BotOmnilink.STATES.MAX_PORT);
-						}else {
-							botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
+					case"Sim":
+						try {
+							if((esp.getQtdeEspelhamentos() > 0) && (esp.getQtdeEspelhamentos() >= 2)){
+								botInputResult.setIntentName(BotOmnilink.STATES.LISTR_CENTRAL);
+							}else {
+								botInputResult.setIntentName(BotOmnilink.STATES.TIPO_EXCLUIR_CENTRAL);
+							}	
 						}
-						
-					}catch(Exception e) {
+						catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"Não":
+						try {
+							if(esp.getQtdeEspelhamentos() >= 8) {
+								botInputResult.setIntentName(BotOmnilink.STATES.MAX_PORT);
+							}else {
+								botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
+							}
+							
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
 			}
 				return botInputResult;
 			});		

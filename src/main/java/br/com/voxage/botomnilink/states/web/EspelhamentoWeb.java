@@ -3,6 +3,7 @@ package br.com.voxage.botomnilink.states.web;
 import java.util.HashMap;
 
 import br.com.voxage.botomnilink.BotOmnilink;
+import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -18,13 +19,22 @@ public class EspelhamentoWeb {
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
 				BotInputResult botInputResult = new BotInputResult();
+				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
+				
+				if(bot.getMicro() != null) {
+					bot.getMicro().setAccessToken(null);
+				}
+				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
 				case"1 - Efetuar":
 					try {
+						dadosFluxo.setEspelha(1);
 						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);
 					}catch(Exception e) {
 						botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -32,6 +42,7 @@ public class EspelhamentoWeb {
 					break;
 				case"2 - Retirar":
 					try {
+						dadosFluxo.setEspelha(2);
 						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);
 					}catch(Exception e) {
 						botInputResult.setResult(BotInputResult.Result.ERROR);

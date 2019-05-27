@@ -22,7 +22,7 @@ public class MenuWhats {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				dadosFluxo.setMax(1);
 				
 				switch(userInput) {
@@ -77,6 +77,9 @@ public class MenuWhats {
 					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
+				
+				bot.getUserSession().put("CLIENTINFO_Transfer", userInput);
+				
 				return botInputResult;
 			});
 			

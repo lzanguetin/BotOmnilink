@@ -22,36 +22,41 @@ public class EscolherTituloWeb {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
-				case"1 – Boletos a Vencer":
-					try {
-						dadosFluxo.setStatus(1);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
+					case"1 – Boletos a Vencer":
+						try {
+							dadosFluxo.setTitle(1);
+							dadosFluxo.setStatus(1);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2 – Boletos Atrasados":
+						try {
+							dadosFluxo.setTitle(2);
+							dadosFluxo.setStatus(2);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3 – Todos os Boletos Pendentes":
+						try {
+							dadosFluxo.setTitle(3);
+							dadosFluxo.setStatus(3);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 – Boletos Atrasados":
-					try {
-						dadosFluxo.setStatus(2);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 – Todos os Boletos Pendentes":
-					try {
-						dadosFluxo.setStatus(3);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
+				}
 				return botInputResult;
 			});
 			

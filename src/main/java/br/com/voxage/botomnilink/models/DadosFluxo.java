@@ -13,6 +13,9 @@ public class DadosFluxo {
 	private Integer status;
 	private String cnpjEsp;
 	private String portaEsp;
+	private Integer espelha;
+	private Integer title;
+	private String menu;
 	
 	public String getOption() {
 		return option;
@@ -108,5 +111,29 @@ public class DadosFluxo {
 	
 	public void setPortaEsp(String portaEsp) {
 		this.portaEsp = portaEsp;
+	}
+
+	public Integer getEspelha() {
+		return espelha;
+	}
+
+	public void setEspelha(Integer espelha) {
+		this.espelha = espelha;
+	}
+
+	public Integer getTitle() {
+		return title;
+	}
+
+	public void setTitle(Integer title) {
+		this.title = title;
+	}
+
+	public String getMenu() {
+		return menu;
+	}
+
+	public void setMenu(String menu) {
+		this.menu = menu;
 	}
 }

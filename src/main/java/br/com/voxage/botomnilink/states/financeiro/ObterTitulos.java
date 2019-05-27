@@ -7,7 +7,6 @@ import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.BotOmnilinkIntegration;
 import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.botomnilink.models.Titulos;
-import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -32,6 +31,7 @@ public class ObterTitulos {
 					bot.setTitulos(customerInfo);
 					
 					if((Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAbertos()) == 0)&&(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAssessoria()) == 0)&&(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeVencidos()) == 0)) {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Obter Títulos - Sem Boletos Pendentes");
 						botStateFlow.navigationKey = BotOmnilink.STATES.SEM_BOLETO;
 					}else if(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAssessoria()) > 0) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.FONE_ASSESSORIA;
@@ -40,7 +40,14 @@ public class ObterTitulos {
 					}
 
 				}catch(Exception e) {
-					botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
+					if(bot.getError() == 500) {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Obter Títulos - Erro de Integração");
+						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_TITULO;	
+					}else{
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Obter Títulos - Boletos não Localizados");
+						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;	
+					}
+					
 				}
 				return botStateFlow;
 			}));
@@ -49,6 +56,7 @@ public class ObterTitulos {
 				put(BotOmnilink.STATES.SEM_BOLETO, "#SEM_BOLETO");
 				put(BotOmnilink.STATES.FONE_ASSESSORIA, "#FONE_ASSESSORIA");
 				put(BotOmnilink.STATES.ESCOLHER_TITULO, "#ESCOLHER_TITULO");
+				put(BotOmnilink.STATES.ERRO_TITULO, "#ERRO_TITULO");
 				put(BotOmnilink.STATES.SDADOS, "#SDADOS");
 				put("MAX_INPUT_ERROR", "#ATENDENTE");
 			}});

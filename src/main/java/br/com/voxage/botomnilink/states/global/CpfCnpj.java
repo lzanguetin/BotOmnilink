@@ -32,7 +32,9 @@ public class CpfCnpj{
 				}else {
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
-					
+				
+				bot.getUserSession().put("CLIENTINFO_CPF-CNPJ", userInput);
+				
 				return botInputResult;
 			});
 			

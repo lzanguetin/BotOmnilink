@@ -42,12 +42,14 @@ public class IncluirEspExistente {
 				try {
 					customerInfo = BotOmnilinkIntegration.incluirEspelhamento(bot, incluir);
 					bot.setAlter(customerInfo);
-					if(bot.getAlter().getSucesso() == "true") {
+					if("true".equals(bot.getRemover().getSucesso())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.INCLUSAO_ESP;
 					}else {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Não Permitido");
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ALTER;
 					}	
 				}catch(Exception e) {
+					bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Erro de Integração");
 					inputResult.setResult(BotInputResult.Result.ERROR);
 				}				
 				return botStateFlow;

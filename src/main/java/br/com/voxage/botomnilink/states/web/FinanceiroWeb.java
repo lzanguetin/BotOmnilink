@@ -20,35 +20,38 @@ public class FinanceiroWeb {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
-				case"1 – Segunda via de Boletos":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.TITULOS);
-					}catch(Exception e) {
+					case"1 – Segunda via de Boletos":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2 – Informar um Pagamento":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.INFORME);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3 – Outros Assuntos Financeiros":
+						try {
+							bot.getUserSession().put("CLIENTINFO_Transfer", "Demandas Financeiras - Outros Assuntos");
+							botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 – Informar um Pagamento":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.INFORME);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 – Outros Assuntos Financeiros":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
-				return botInputResult;
-			});
+				}
+			return botInputResult;
+		});
 			
 			setPosFunction((botState, inputResult)->{
 				BotStateFlow botStateFlow = new BotStateFlow();

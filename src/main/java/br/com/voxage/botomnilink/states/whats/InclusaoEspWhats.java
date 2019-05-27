@@ -22,36 +22,36 @@ public class InclusaoEspWhats {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				switch(userInput) {
-				case"1 – Espelhamento de Sinal ou Retirada":
-					try {
-						dadosFluxo.setStatus(1);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
+					case"1 – Espelhamento de Sinal ou Retirada":
+						try {
+							dadosFluxo.setStatus(1);
+							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2 – Outros Assuntos":
+						try {
+							dadosFluxo.setStatus(2);
+							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3 – Finalizar":
+						try {
+							dadosFluxo.setStatus(3);
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 – Outros Assuntos":
-					try {
-						dadosFluxo.setStatus(2);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 – Finalizar":
-					try {
-						dadosFluxo.setStatus(3);
-						botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
+				}
 				return botInputResult;
 			});
 			
@@ -64,9 +64,11 @@ public class InclusaoEspWhats {
 			});
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
-				put(BotOmnilink.STATES.ENVIAR_TITULOS, "/ENVIAR_TITULOS");
+				put(BotOmnilink.STATES.TIPO_ESPELHAMENTO, "/TIPO_ESPELHAMENTO");
+				put(BotOmnilink.STATES.OUTROS, "/OUTROS");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR"); 
+                put("MAX_NO_INPUT", "/FINALIZAR");
 			}});
 		}};
 	}

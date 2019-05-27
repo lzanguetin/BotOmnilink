@@ -20,7 +20,7 @@ public class FinalizarEspWhats {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 					
 				switch(userInput) {
 					case"1 – Consultar outro número de série":

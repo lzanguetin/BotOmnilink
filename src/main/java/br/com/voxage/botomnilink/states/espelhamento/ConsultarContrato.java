@@ -26,6 +26,8 @@ public class ConsultarContrato {
 				Clientes cliente = bot.getClientes();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
+				bot.getUserSession().put("CLIENTINFO_Transfer", dadosFluxo.getMenu());
+				
 				String obterPin = BotOmnilink.readString("id.flag.obterPin");
 				int aux = dadosFluxo.getMax();
 				Contratos customerInfo = null;
@@ -33,20 +35,20 @@ public class ConsultarContrato {
 				try {
 					customerInfo = BotOmnilinkIntegration.getContratos(bot, dadosFluxo.getSerie(), cliente.getCliente().getClienteId());
 					bot.setContratos(customerInfo);
-					if(obterPin == "true") {
+					if("true".equals(obterPin)) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.OBTER_PIN;
 					}else {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CONSULTAR_ESP;
 					}				
-				}catch(Exception e){		
-					if(aux<=3){
+				}catch(Exception e){
+					if(aux<3){
 						aux = aux+1;
 						dadosFluxo.setMax(aux);
-						botStateFlow.navigationKey = BotOmnilink.STATES.SERIE_ESP;
+						botStateFlow.navigationKey = BotOmnilink.STATES.SEM_SERIE;
 					}else {
-						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
-					}
-				}
+						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_CONTRATO;
+					}			
+				}	
 				return botStateFlow;
 			}));
 			
@@ -54,7 +56,8 @@ public class ConsultarContrato {
 				put(BotOmnilink.STATES.OBTER_PIN, "/OBTER_PIN");
 				put(BotOmnilink.STATES.CONSULTAR_ESP, "/CONSULTAR_ESP");
 				put(BotOmnilink.STATES.SERIE_ESP, "/SERIE_ESP");
-				put(BotOmnilink.STATES.SDADOS, "/SDADOS");
+				put(BotOmnilink.STATES.SEM_SERIE, "/SEM_SERIE");
+				put(BotOmnilink.STATES.ERRO_CONTRATO, "/ERRO_CONTRATO");
                 put("MAX_INPUT_ERROR", "/TERMINATE");
                 put("MAX_NO_INPUT", "/TERMINATE");
 			}});

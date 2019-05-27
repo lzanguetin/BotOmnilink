@@ -70,6 +70,7 @@ public class BotOmnilink extends VBot {
 	private TransferType type;
 	private String option;
 	private String group;
+	private Integer error;
 	
 	 public interface STATES{
 		 //start
@@ -123,6 +124,7 @@ public class BotOmnilink extends VBot {
 		 String VERIFCLIENTE = "verifcliente";
 		 String ATENDENTE = "atendente";
 		 String FINALIZAR = "finalizar";
+		 String FORA_HORARIO = "fora_horario";
 		 
 		 //utils		 
 		 String TIPO_ESPELHAMENTO = "tipo_espelhamento";
@@ -163,6 +165,8 @@ public class BotOmnilink extends VBot {
 		 String CENT_INEXIST = "cent_inexist";
 		 String INC_EXIST = "inc_exist";
 		 String ERRO_ALTER = "erro_alter";
+		 String ERRO_CONTRATO = "erro_contrato";
+		 String SEM_SERIE = "sem_serie";
 		 
 		//campos específicos financeiro
 		 String TITULOS = "titulos";
@@ -178,6 +182,8 @@ public class BotOmnilink extends VBot {
 		 String ENVIAR_TITULOS = "enviar_titulos";
 		 String CONFIRMA_ENVIO = "confirma_envio";
 		 String ERRO_ENVIO = "erro_envio";
+		 String ERRO_TITULO = "erro_titulo";
+		 String ERRO_ASSE = "erro_asse";
 		 
 		 //transferencia
 		 String TRANSFERIR = "transfer_to_attendant(1)";
@@ -192,7 +198,7 @@ public class BotOmnilink extends VBot {
 	}
 
 	public String getCustomBotName() {
-		return "Bot Omnilink";
+		return "Omnilink";
 	}
 
 	public String getCustomImageName() {
@@ -478,5 +484,13 @@ public class BotOmnilink extends VBot {
 
 	public void setGroup(String string) {
 		this.group = string;
+	}
+
+	public Integer getError() {
+		return error;
+	}
+
+	public void setError(Integer error) {
+		this.error = error;
 	}
 }

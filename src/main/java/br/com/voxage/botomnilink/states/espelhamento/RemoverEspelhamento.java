@@ -67,19 +67,26 @@ public class RemoverEspelhamento {
 				try {
 					customerInfo = BotOmnilinkIntegration.removeEspelhamento(bot, info);
 					bot.setRemover(customerInfo);
-					if(bot.getRemover().getSucesso() == "true") {
-						botStateFlow.navigationKey = BotOmnilink.STATES.TIPO_INCLUIR_ESP;
+					if("true".equals(bot.getRemover().getSucesso())) {
+						if(dadosFluxo.getEspelha() == 1) {
+							botStateFlow.navigationKey = BotOmnilink.STATES.CNPJ_ESP;
+						}else {
+							botStateFlow.navigationKey = BotOmnilink.STATES.RETIRAR_ESP;
+						}
 					}else {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Remover Espelhamento - Erro de Integração");
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_REMOVER;
 					}
-				}catch(Exception e){		
+				}catch(Exception e){
+					bot.getUserSession().put("CLIENTINFO_Transfer", "Remover Espelhamento - Erro de Integração");
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_REMOVER;
 				}
 				return botStateFlow;
 			}));
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
-				put(BotOmnilink.STATES.TIPO_INCLUIR_ESP, "#TIPO_INCLUIR_ESP");
+				put(BotOmnilink.STATES.CNPJ_ESP, "#CNPJ_ESP");
+				put(BotOmnilink.STATES.RETIRAR_ESP, "#RETIRAR_ESP");
 				put(BotOmnilink.STATES.ERRO_REMOVER, "#ERRO_REMOVER");
                 put("MAX_INPUT_ERROR", "/TERMINATE");
                 put("MAX_NO_INPUT", "/TERMINATE");

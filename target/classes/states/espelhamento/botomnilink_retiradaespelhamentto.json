@@ -3,7 +3,7 @@
 		{
 			"id": "/RETIRAR_ESP",
 			"idNavigationDetail": 11499,
-			"initialMessages": ["Pronto! A retirada do(s) espelhamento de sinal foi realizado com sucesso.\nPeço que confirme com a Empresa se está tudo Ok. Caso contrário, retorne seu contato conosco."]
+			"initialMessages": ["Pronto! A retirada do(s) espelhamento de sinal foi realizado com sucesso.\nPeço que confirme com a Gerenciadora de Risco se está tudo Ok. Caso contrário, retorne seu contato conosco."]
 		}
 	]
 }

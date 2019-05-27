@@ -20,7 +20,10 @@ public class CentralInexistWeb {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
+				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
 				
 				switch(userInput) {
 				case"1 – Alterar o CNPJ e a Porta para Espelhar o Sinal\r\n" + 

@@ -27,18 +27,27 @@ public class ValidarPIN {
 				DadosFluxo dadosFluxo= bot.getDadosFluxo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
+				bot.getUserSession().put("CLIENTINFO_Transfer", dadosFluxo.getMenu());
+				
 				PIN customerInfo = null;
 				
 				try {
 					customerInfo = BotOmnilinkIntegration.validaPin(bot, dadosFluxo.getPin(), cliente.getCliente().getClienteId());
 					bot.setPIN(customerInfo);
-					if(bot.getPIN().getCodigoValido() == "true") {
+					if("true".equals(bot.getPIN().getCodigoValido())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CONSULTAR_ESP;
 					}else {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Validar PIN - PIN Inválido");
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
 					}	
 				}catch(Exception e) {
-					botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
+					if(bot.getError() == 500) {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Validar PIN - PIN Inválido");
+						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
+					}else {
+						bot.getUserSession().put("CLIENTINFO_Transfer", "Validar PIN - PIN Inválido");
+						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;	
+					}	
 				}				
 				return botStateFlow;
 			}));

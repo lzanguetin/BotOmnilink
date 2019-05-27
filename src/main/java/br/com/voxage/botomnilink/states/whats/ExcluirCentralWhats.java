@@ -33,7 +33,7 @@ public class ExcluirCentralWhats {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				switch(userInput) {
 					case"1 - Sim":

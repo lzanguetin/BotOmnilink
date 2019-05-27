@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_CONTRATO",
+			"idNavigationDetail": 10650,
+			"initialMessages": ["Desculpe, mas eu continuo não localizando a série informada. Por favor, verifique o número e retorne."]
+		}
+	]
+}

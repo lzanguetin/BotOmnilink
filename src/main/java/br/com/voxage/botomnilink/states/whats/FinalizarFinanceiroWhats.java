@@ -20,33 +20,33 @@ public class FinalizarFinanceiroWhats {
 				BotInputResult botInputResult = new BotInputResult();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs();
+				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				switch(userInput) {
-				case"1 – Tratar outro assunto financeiro":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINANCEIRO);
-					}catch(Exception e) {
+					case"1 – Tratar outro assunto financeiro":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINANCEIRO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2 – Falar de outros assuntos":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3 – Finalizar":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					default:
 						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"2 – Falar de outros assuntos":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				case"3 – Finalizar":
-					try {
-						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
-					}catch(Exception e) {
-						botInputResult.setResult(BotInputResult.Result.ERROR);
-					}
-					break;
-				default:
-					botInputResult.setResult(BotInputResult.Result.ERROR);
-			}
+				}
 				return botInputResult;
 			});
 			

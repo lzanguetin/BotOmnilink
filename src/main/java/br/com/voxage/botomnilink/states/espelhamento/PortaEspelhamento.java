@@ -28,6 +28,7 @@ public class PortaEspelhamento {
 					dadosFluxo.setPortaEsp(userInput);
 					botInputResult.setResult(BotInputResult.Result.OK);
 				}else {
+					bot.getUserSession().put("CLIENTINFO_Transfer", "Obter Porta Espelhamento - Porta Inválida");
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
 					
