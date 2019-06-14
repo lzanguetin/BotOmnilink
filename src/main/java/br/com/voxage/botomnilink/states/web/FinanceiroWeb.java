@@ -66,6 +66,7 @@ public class FinanceiroWeb {
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
+						break;
 					case"1":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TITULOS);
