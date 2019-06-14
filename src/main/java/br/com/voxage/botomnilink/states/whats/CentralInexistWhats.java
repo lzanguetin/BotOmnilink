@@ -3,6 +3,7 @@ package br.com.voxage.botomnilink.states.whats;
 import java.util.HashMap;
 
 import br.com.voxage.botomnilink.BotOmnilink;
+import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -18,36 +19,74 @@ public class CentralInexistWhats {
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
 				BotInputResult botInputResult = new BotInputResult();
+				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
 				String userInput = userInputs.getConcatenatedInputs().trim();
 				
-				switch(userInput) {
-					case"1 – Alterar o CNPJ e a Porta para Espelhar o Sinal\r\n" + 
-							"para outra Central":
-						try {
-							botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
-						}catch(Exception e) {
-							botInputResult.setResult(BotInputResult.Result.ERROR);
-						}
-						break;
-					case"2 – Falar de Outros Assuntos":
-						try {
-							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
-						}catch(Exception e) {
-							botInputResult.setResult(BotInputResult.Result.ERROR);
-						}
-						break;
-					case"3 – Finalizar Atendimento":
-						try {
-							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
-						}catch(Exception e) {
-							botInputResult.setResult(BotInputResult.Result.ERROR);
-						}
-						break;
-					default:
-						botInputResult.setResult(BotInputResult.Result.ERROR);
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
+				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
 				}
+				
+				switch(userInput) {
+				case"1 - Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central":
+					try {
+						botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"2 - Falar de Outros Assuntos":
+					try {
+						botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"3 - Finalizar Atendimento":
+					try {
+						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"1":
+					try {
+						botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"2":
+					try {
+						botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"3":
+					try {
+						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case "7":
+					try {
+						dadosFluxo.setOption("7");
+						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+					}catch(Exception e){
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				default:
+					botInputResult.setResult(BotInputResult.Result.ERROR);
+			}
 				return botInputResult;
 			});
 			

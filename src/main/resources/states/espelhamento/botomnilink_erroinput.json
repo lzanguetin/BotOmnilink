@@ -1,0 +1,9 @@
+{
+	"states":[
+		{
+			"id": "/ERRO_INPUT",
+			"idNavigationDetail": 1111,
+			"initialMessages": ["Algum(ns) valor(es) informado(s) está(ão) incorrreto(s), tente novamente."]
+		}
+	]
+}

@@ -1,6 +1,7 @@
 package br.com.voxage.botomnilink.states.financeiro;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
@@ -9,6 +10,7 @@ import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.botomnilink.models.EnvTitulos;
 import br.com.voxage.botomnilink.models.Envio;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -27,6 +29,8 @@ public class EnviarTitulos {
 				Envio env = new Envio();
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				Clientes cli = bot.getClientes();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
 				env.setCpfCnpj(dadosFluxo.getCpfCnpj());
@@ -47,11 +51,13 @@ public class EnviarTitulos {
 					if(bot.getEnv().getEmail() != null){
 						botStateFlow.navigationKey = BotOmnilink.STATES.CONFIRMA_ENVIO;
 					}else {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Enviar Titulo - Sem E-mail Cadastado");
+						att.get(0).setValue("Enviar Titulo - Sem E-mail Cadastado");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 					}						
 				}catch(Exception e) {
-					bot.getUserSession().put("CLIENTINFO_Transfer", "Enviar Titulo - Erro de Integração");
+					att.get(0).setValue("Enviar Titulo - Erro de Integraï¿½ï¿½o");
+					bot.setcInfo(att);
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ENVIO;
 				}
 				return botStateFlow;

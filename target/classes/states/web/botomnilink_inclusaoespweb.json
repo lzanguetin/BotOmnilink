@@ -7,13 +7,13 @@
                     "message": "Agora que o espelhamento de sinal foi concluído, você deseja realizar outro espelhamento ou retirada, falar de outros assuntos ou finalizar o atendimento?",
                     "options": [  
                         {  
-                            "text": "1 – Espelhamento de Sinal ou Retirada"
+                            "text": "1 - Espelhamento de Sinal ou Retirada"
                         },
                         {  
-                            "text": "2 – Outros Assuntos"
+                            "text": "2 - Outros Assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar"
+                            "text": "3 - Finalizar"
                         }
                     ],
                     "messageType": "OPTION_BOX"
@@ -23,13 +23,13 @@
                     "message": "A opção que você informou não é válida.\nVocê deseja:",
                     "options": [  
                         {  
-                            "text": "1 – Espelhamento de Sinal ou Retirada"
+                            "text": "1 - Espelhamento de Sinal ou Retirada"
                         },
                         {  
-                            "text": "2 – Outros Assuntos"
+                            "text": "2 - Outros Assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar"
+                            "text": "3 - Finalizar"
                         }
                     ],
                     "messageType": "OPTION_BOX"
@@ -38,13 +38,13 @@
                     "message": "Você digitou novamente uma opção inválida.\nVocê quer:",
                     "options": [  
                         {  
-                            "text": "1 – Espelhamento de Sinal ou Retirada"
+                            "text": "1 - Espelhamento de Sinal ou Retirada"
                         },
                         {  
-                            "text": "2 – Outros Assuntos"
+                            "text": "2 - Outros Assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar"
+                            "text": "3 - Finalizar"
                         }
                     ],
                     "messageType": "OPTION_BOX"

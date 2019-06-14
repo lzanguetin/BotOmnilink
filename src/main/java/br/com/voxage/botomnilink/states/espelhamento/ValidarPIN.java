@@ -1,6 +1,7 @@
 package br.com.voxage.botomnilink.states.espelhamento;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
@@ -8,6 +9,7 @@ import br.com.voxage.botomnilink.BotOmnilinkIntegration;
 import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.botomnilink.models.PIN;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -25,10 +27,13 @@ public class ValidarPIN {
 				BotStateFlow botStateFlow = new BotStateFlow();
 				Clientes cliente = bot.getClientes();
 				DadosFluxo dadosFluxo= bot.getDadosFluxo();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
-				bot.getUserSession().put("CLIENTINFO_Transfer", dadosFluxo.getMenu());
-				
+				att.get(0).setValue(dadosFluxo.getMenu());
+				bot.setcInfo(att);
+
 				PIN customerInfo = null;
 				
 				try {
@@ -37,15 +42,18 @@ public class ValidarPIN {
 					if("true".equals(bot.getPIN().getCodigoValido())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CONSULTAR_ESP;
 					}else {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Validar PIN - PIN Inválido");
+						att.get(0).setValue("Validar PIN - PIN Invï¿½lido");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
 					}	
 				}catch(Exception e) {
 					if(bot.getError() == 500) {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Validar PIN - PIN Inválido");
+						att.get(0).setValue("Validar PIN - PIN Invï¿½lido");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
 					}else {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Validar PIN - PIN Inválido");
+						att.get(0).setValue("Validar PIN - PIN Invï¿½lido");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;	
 					}	
 				}				

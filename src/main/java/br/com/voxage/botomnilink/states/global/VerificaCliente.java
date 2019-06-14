@@ -1,11 +1,13 @@
 package br.com.voxage.botomnilink.states.global;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.BotOmnilinkIntegration;
 import br.com.voxage.botomnilink.models.DadosFluxo;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -22,6 +24,8 @@ public class VerificaCliente {
 			setAsyncPosFunction((botState, inputResult)-> CompletableFuture.supplyAsync(()->{
 				BotStateFlow botStateFlow = new BotStateFlow();
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
 				Clientes customerInfo = null;
@@ -39,10 +43,12 @@ public class VerificaCliente {
 					}					
 				}catch(Exception e){
 					if(bot.getError() == 500) {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Verifica Cliente - Erro de Integração");
+						att.get(0).setValue("Verifica Cliente - Erro de Integraï¿½ï¿½o");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
 					}else {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Verifica Cliente - Cliente não Localizado");
+						att.get(0).setValue("Verifica Cliente - Cliente nï¿½o Localizado");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
 					}					
 				}

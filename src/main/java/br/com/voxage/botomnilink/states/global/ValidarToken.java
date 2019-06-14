@@ -24,6 +24,10 @@ public class ValidarToken {
 				
 				Token customerInfo = null;
 				
+				if(bot.getMicro() != null) {
+					bot.getMicro().setAccessToken(null);
+				}
+				
 				try {
 					customerInfo = BotOmnilinkIntegration.validarUsuario(bot);
 					bot.setToken(customerInfo);

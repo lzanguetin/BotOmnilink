@@ -1,11 +1,13 @@
 package br.com.voxage.botomnilink.states.global;
 
 import java.util.HashMap;
+import java.util.List;
 
 import br.com.voxage.basicvalidators.CNPJValidator;
 import br.com.voxage.basicvalidators.CPFValidator;
 import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.models.DadosFluxo;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -21,19 +23,27 @@ public class CpfCnpj{
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
 				BotInputResult botInputResult = new BotInputResult();
-				DadosFluxo dadosFluxo = bot.getDadosFluxo();
+				DadosFluxo dadosFluxo = bot.getDadosFluxo(); 
+				AttendantClientInfo cInfo = new AttendantClientInfo();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();	
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs().replaceAll("\\D+", "");;
+				String userInput = userInputs.getConcatenatedInputs().replaceAll("[/.-]", "");;
+				cInfo.setName("CPF-CNPJ");
+				cInfo.setValue(userInput);
+				bot.setaInfo(cInfo);
+				att.add(bot.getaInfo());
+				bot.setcInfo(att);	
 				
 				if(((CPFValidator.isValidCPF(userInput)) == true) || ((CNPJValidator.isValidCNPJ(userInput)) == true)){
 					dadosFluxo.setCpfCnpj(userInput);
-					botInputResult.setResult(BotInputResult.Result.OK);
+					botInputResult.setIntentName(BotOmnilink.STATES.VERIFCLIENTE);
+				}else if("sair".equals(userInput.toLowerCase())){
+					botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 				}else {
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
-				
-				bot.getUserSession().put("CLIENTINFO_CPF-CNPJ", userInput);
 				
 				return botInputResult;
 			});
@@ -41,13 +51,14 @@ public class CpfCnpj{
 			setPosFunction((botState, inputResult) ->{
 				BotStateFlow botStateFlow = new BotStateFlow();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
-				botStateFlow.navigationKey = BotOmnilink.STATES.VERIFCLIENTE;
+				botStateFlow.navigationKey = inputResult.getIntentName();
 				
 				return botStateFlow;
 			});
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.VERIFCLIENTE, "#VERIFCLIENTE");
+				put(BotOmnilink.STATES.FINALIZAR, "#FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR");
 			}});

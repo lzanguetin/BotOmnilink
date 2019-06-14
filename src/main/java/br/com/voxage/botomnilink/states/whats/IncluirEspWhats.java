@@ -3,6 +3,7 @@ package br.com.voxage.botomnilink.states.whats;
 import java.util.HashMap;
 
 import br.com.voxage.botomnilink.BotOmnilink;
+import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -18,9 +19,19 @@ public class IncluirEspWhats {
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
 				BotInputResult botInputResult = new BotInputResult();
+				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
 				String userInput = userInputs.getConcatenatedInputs().trim();
+				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
+				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
 				
 				switch(userInput) {
 					case"Sim":
@@ -30,10 +41,18 @@ public class IncluirEspWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"Não":
+					case"NÃ£o":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.RETIRAR_ESP);
 						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
@@ -54,6 +73,7 @@ public class IncluirEspWhats {
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.CNPJ_ESP, "/CNPJ_ESP");
 				put(BotOmnilink.STATES.RETIRAR_ESP, "/RETIRAR_ESP");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

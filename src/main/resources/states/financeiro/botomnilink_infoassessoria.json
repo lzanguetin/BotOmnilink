@@ -3,7 +3,7 @@
 		{
 			"id": "/INFO_ASSESSORIA",
 			"idNavigationDetail": 12602,
-			"initialMessages": ["Assessoria: #nome#\nTelefone: #contato#"]
+			"initialMessages": ["Por favor, anote o número da assessoria financeira que vai te ajudar com seus títulos vencidos\nAssessoria: #nome#\nTelefone: #contato#"]
 		}
 	]
 }

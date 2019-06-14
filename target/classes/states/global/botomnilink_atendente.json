@@ -3,7 +3,7 @@
 		{
 			"id": "/ATENDENTE",
 			"idNavigationDetail":13000,
-			"initialMessages":["Tudo bem. Só um momento, vou transferir seu atendimento para outra pessoa."]
+			"initialMessages":["Por favor aguarde um instante. Vou transferir você para alguém que vai te ajudar."]
 		}
 	]
 }

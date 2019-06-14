@@ -23,32 +23,75 @@ public class EscolherTituloWhats {
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
 				String userInput = userInputs.getConcatenatedInputs().trim();
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
+				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
 				
 				switch(userInput) {
-					case"1 – Boletos a Vencer":
+					case"1 - Boletos a Vencer":
 						try {
-							dadosFluxo.setStatus(1);
 							dadosFluxo.setTitle(1);
+							dadosFluxo.setStatus(1);
 							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 – Boletos Atrasados":
+					case"2 - Boletos Atrasados":
 						try {
-							dadosFluxo.setStatus(2);
 							dadosFluxo.setTitle(2);
+							dadosFluxo.setStatus(2);
 							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 – Todos os Boletos Pendentes":
+					case"3 - Todos os Boletos Pendentes":
 						try {
-							dadosFluxo.setStatus(3);
 							dadosFluxo.setTitle(3);
+							dadosFluxo.setStatus(3);
 							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
 						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"1":
+						try {
+							dadosFluxo.setTitle(1);
+							dadosFluxo.setStatus(1);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2":
+						try {
+							dadosFluxo.setTitle(2);
+							dadosFluxo.setStatus(2);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3":
+						try {
+							dadosFluxo.setTitle(3);
+							dadosFluxo.setStatus(3);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
@@ -68,6 +111,7 @@ public class EscolherTituloWhats {
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.ENVIAR_TITULOS, "/ENVIAR_TITULOS");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

@@ -1,8 +1,10 @@
 package br.com.voxage.botomnilink.models;
 
+import java.util.List;
+
 public class Assessoria {
 	private String unicaAssessoria;
-	private Assessor assessoria;
+	private List<Assessor> assessoria;
 	
 	public String getUnicaAssessoria() {
 		return unicaAssessoria;
@@ -12,11 +14,11 @@ public class Assessoria {
 		this.unicaAssessoria = unicaAssessoria;
 	}
 	
-	public Assessor getAssessoria() {
+	public List<Assessor> getAssessoria() {
 		return assessoria;
 	}
 	
-	public void setAssessoria(Assessor assessoria) {
+	public void setAssessoria(List<Assessor> assessoria) {
 		this.assessoria = assessoria;
 	}
 }

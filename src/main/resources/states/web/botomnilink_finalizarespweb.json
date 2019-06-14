@@ -7,13 +7,13 @@
                     "message": "Você deseja:",
                     "options": [  
                         {  
-                            "text": "1 – Consultar outro número de série"
+                            "text": "1 - Consultar outro número de série"
                         },
                         {  
-                            "text": "2 – Falar de outros assuntos"
+                            "text": "2 - Falar de outros assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar atendimento"
+                            "text": "3 - Finalizar atendimento"
                         }
                     ],
                     "messageType": "OPTION_BOX"
@@ -23,13 +23,13 @@
                     "message": "A opção digitada não é valida.\nVocê deseja:",
                     "options": [  
                         {  
-                            "text": "1 – Consultar outro número de série"
+                            "text": "1 - Consultar outro número de série"
                         },
                         {  
-                            "text": "2 – Falar de outros assuntos"
+                            "text": "2 - Falar de outros assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar atendimento"
+                            "text": "3 - Finalizar atendimento"
                         }
                     ],
                     "messageType": "OPTION_BOX"
@@ -38,13 +38,13 @@
                     "message": "A opção digitada continua inválida.\nEu preciso que informe o que quer fazer:",
                     "options": [  
                         {  
-                            "text": "1 – Consultar outro número de série"
+                            "text": "1 - Consultar outro número de série"
                         },
                         {  
-                            "text": "2 – Falar de outros assuntos"
+                            "text": "2 - Falar de outros assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar atendimento"
+                            "text": "3 - Finalizar atendimento"
                         }
                     ],
                     "messageType": "OPTION_BOX"

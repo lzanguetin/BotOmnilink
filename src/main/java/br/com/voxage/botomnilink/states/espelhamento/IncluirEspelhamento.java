@@ -1,6 +1,7 @@
 package br.com.voxage.botomnilink.states.espelhamento;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
@@ -8,6 +9,7 @@ import br.com.voxage.botomnilink.BotOmnilinkIntegration;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.botomnilink.models.Incluido;
 import br.com.voxage.botomnilink.models.Incluir;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -24,6 +26,8 @@ public class IncluirEspelhamento {
 				BotStateFlow botStateFlow = new BotStateFlow();
 				Incluir incluir = new Incluir();
 				DadosFluxo dadosFluxo= bot.getDadosFluxo();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 								
 				incluir.setCnpj(dadosFluxo.getCnpjEsp());
@@ -34,7 +38,8 @@ public class IncluirEspelhamento {
 				
 				bot.setIncluir(incluir);
 				
-				bot.getUserSession().put("CLIENTINFO_Transfer", dadosFluxo.getMenu());
+				att.get(0).setValue(dadosFluxo.getMenu());
+				bot.setcInfo(att);
 				
 				Incluido customerInfo = null;
 				
@@ -42,7 +47,8 @@ public class IncluirEspelhamento {
 					customerInfo = BotOmnilinkIntegration.addEspelhamentoCnpj(bot, incluir);
 					bot.setInc(customerInfo);
 					if("-2".equals(bot.getInc().getStatus())){
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Erro na Execução");
+						att.get(0).setValue("Incluir Espelhamento - Erro na Execuï¿½ï¿½o");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INC;
 					}else if("1".equals(bot.getInc().getStatus())){
 						botStateFlow.navigationKey = BotOmnilink.STATES.INCLUSAO_ESP;
@@ -52,7 +58,8 @@ public class IncluirEspelhamento {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CENT_INEXIST;
 					}
 				}catch(Exception e) {
-					bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Erro de Execução");
+					att.get(0).setValue("Incluir Espelhamento - Erro de Execuï¿½ï¿½o");
+					bot.setcInfo(att);
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INC;
 				}				
 				return botStateFlow;

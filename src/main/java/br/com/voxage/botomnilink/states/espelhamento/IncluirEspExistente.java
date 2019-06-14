@@ -1,6 +1,7 @@
 package br.com.voxage.botomnilink.states.espelhamento;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
@@ -9,6 +10,7 @@ import br.com.voxage.botomnilink.models.AlteradoExistente;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.botomnilink.models.Espelhamento;
 import br.com.voxage.botomnilink.models.Incluir;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -27,12 +29,19 @@ public class IncluirEspExistente {
 				Espelhamento esp = bot.getEspelhamento();
 				Incluir incluir = new Incluir();
 				DadosFluxo dadosFluxo= bot.getDadosFluxo();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
+				
+				System.out.println("!!!!!!!!!!!!!!!!!!!");
+				System.out.println("INCLUSAO");
+				System.out.println(esp.getCentraisClientes().get(0).getId());
+				System.out.println(dadosFluxo.getExcluir());
 				
 				incluir.setCnpj(dadosFluxo.getCnpjEsp());
 				incluir.setPorta(dadosFluxo.getPortaEsp());
 				incluir.setNumSerie(dadosFluxo.getSerie());
-				incluir.setIdCentral(esp.getCentraisClientes().get(Integer.parseInt(dadosFluxo.getExcluir())).getId());
+				incluir.setIdCentral(esp.getCentraisClientes().get((Integer.parseInt(dadosFluxo.getExcluir()))-1).getId());
 				incluir.setPeriodo("");
 				
 				bot.setIncluir(incluir);
@@ -42,14 +51,16 @@ public class IncluirEspExistente {
 				try {
 					customerInfo = BotOmnilinkIntegration.incluirEspelhamento(bot, incluir);
 					bot.setAlter(customerInfo);
-					if("true".equals(bot.getRemover().getSucesso())) {
+					if("true".equals(bot.getAlter().getSucesso())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.INCLUSAO_ESP;
 					}else {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Não Permitido");
+						att.get(0).setValue("Incluir Espelhamento - Nï¿½o Permitido");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ALTER;
 					}	
 				}catch(Exception e) {
-					bot.getUserSession().put("CLIENTINFO_Transfer", "Incluir Espelhamento - Erro de Integração");
+					att.get(0).setValue("Incluir Espelhamento - Erro de Integraï¿½ï¿½o");
+					bot.setcInfo(att);
 					inputResult.setResult(BotInputResult.Result.ERROR);
 				}				
 				return botStateFlow;

@@ -3,6 +3,7 @@ package br.com.voxage.botomnilink.states.web;
 import java.util.HashMap;
 
 import br.com.voxage.botomnilink.BotOmnilink;
+import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.botomnilink.models.Espelhamento;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
@@ -20,11 +21,18 @@ public class TecValidaWeb {
 			setProcessDirectInputFunction((botState, userInputs) ->{
 				BotInputResult botInputResult = new BotInputResult();
 				Espelhamento esp = bot.getEspelhamento();
+				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				String userInput = userInputs.getConcatenatedInputs().trim();
 				
 				System.out.println("!!!!!!!!!!!!!!");
 				System.out.println(userInput);
+				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
 				
 				switch(userInput) {
 					case"Sim":
@@ -39,7 +47,7 @@ public class TecValidaWeb {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"Não":
+					case"NÃ£o":
 						try {
 							if(esp.getQtdeEspelhamentos() >= 8) {
 								botInputResult.setIntentName(BotOmnilink.STATES.MAX_PORT);
@@ -48,6 +56,14 @@ public class TecValidaWeb {
 							}
 							
 						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
@@ -71,6 +87,7 @@ public class TecValidaWeb {
 				put(BotOmnilink.STATES.TIPO_EXCLUIR_CENTRAL, "#TIPO_EXCLUIR_CENTRAL");
 				put(BotOmnilink.STATES.SEM_ESP, "#SEM_ESP");
 				put(BotOmnilink.STATES.CNPJ_ESP, "#CNPJ_ESP");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

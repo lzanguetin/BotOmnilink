@@ -18,8 +18,8 @@
                 }
             ],
 			"inputErrorResponses":[
-				{"order":"1", "messages":["A opção que você informou não é válida."]},
-				{"order":"2", "messages": ["Você informou novamente uma opção inválida."]}
+				{"order":"1", "messages":["A opção que você informou não é válida. Tente novamente:"]},
+				{"order":"2", "messages": ["Você informou novamente uma opção inválida. Vamos tenntar outra vez:"]}
 			],
             "maxInputErrorResponses":["Infelizmente não consegui te entender. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."],
 			"noInputResponses":[{"order":"1", "messages":["Você não está respondendo. Tudo bem, não tem problema. Vou continuar trabalhando por aqui e quando você precisar de ajuda pode me chamar."]}]

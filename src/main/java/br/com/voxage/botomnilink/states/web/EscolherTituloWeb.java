@@ -26,8 +26,14 @@ public class EscolherTituloWeb {
 				System.out.println("!!!!!!!!!!!!!!");
 				System.out.println(userInput);
 				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
+				
 				switch(userInput) {
-					case"1 – Boletos a Vencer":
+					case"1 - Boletos a Vencer":
 						try {
 							dadosFluxo.setTitle(1);
 							dadosFluxo.setStatus(1);
@@ -36,7 +42,7 @@ public class EscolherTituloWeb {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 – Boletos Atrasados":
+					case"2 - Boletos Atrasados":
 						try {
 							dadosFluxo.setTitle(2);
 							dadosFluxo.setStatus(2);
@@ -45,12 +51,47 @@ public class EscolherTituloWeb {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 – Todos os Boletos Pendentes":
+					case"3 - Todos os Boletos Pendentes":
 						try {
 							dadosFluxo.setTitle(3);
 							dadosFluxo.setStatus(3);
 							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
 						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"1":
+						try {
+							dadosFluxo.setTitle(1);
+							dadosFluxo.setStatus(1);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2":
+						try {
+							dadosFluxo.setTitle(2);
+							dadosFluxo.setStatus(2);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3":
+						try {
+							dadosFluxo.setTitle(3);
+							dadosFluxo.setStatus(3);
+							botInputResult.setIntentName(BotOmnilink.STATES.ENVIAR_TITULOS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
@@ -70,6 +111,7 @@ public class EscolherTituloWeb {
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.ENVIAR_TITULOS, "/ENVIAR_TITULOS");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

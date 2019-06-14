@@ -25,25 +25,63 @@ public class RetiradaEspWhats {
 				String userInput = userInputs.getConcatenatedInputs().trim();
 				dadosFluxo.setOpEspelha(userInput);
 				
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
+				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
+				
 				switch(userInput) {
-					case"1 – Retirada ou Espelhamento de Sinal":
+					case"1 - Retirada ou Espelhamento de Sinal":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 – Outros Assuntos":
+					case"2 - Outros Assuntos":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 – Finalizar":
+					case"3 - Finalizar":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"1":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;

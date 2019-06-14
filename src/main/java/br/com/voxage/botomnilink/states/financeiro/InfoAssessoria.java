@@ -21,8 +21,8 @@ public class InfoAssessoria {
 				Assessoria assess = bot.getAssessoria();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
-				botState.setCustomField("nome", assess.getAssessoria().getNome());
-				botState.setCustomField("contato", assess.getAssessoria().getTelefone());
+				botState.setCustomField("nome", assess.getAssessoria().get(0).getNome());
+				botState.setCustomField("contato", assess.getAssessoria().get(0).getTelefone());
 				
 				return botStateFlow;
 			});

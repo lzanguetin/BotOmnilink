@@ -31,6 +31,14 @@ public class EspelhamentoWeb {
 				System.out.println("!!!!!!!!!!!!!!");
 				System.out.println(userInput);
 				
+				dadosFluxo.setMax(1);
+				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
+				
 				switch(userInput) {
 				case"1 - Efetuar":
 					try {
@@ -45,6 +53,30 @@ public class EspelhamentoWeb {
 						dadosFluxo.setEspelha(2);
 						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);
 					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"1":
+					try {
+						dadosFluxo.setEspelha(1);
+						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case"2":
+					try {
+						dadosFluxo.setEspelha(2);
+						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);
+					}catch(Exception e) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);
+					}
+					break;
+				case "7":
+					try {
+						dadosFluxo.setOption("7");
+						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+					}catch(Exception e){
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 					}
 					break;
@@ -64,6 +96,7 @@ public class EspelhamentoWeb {
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.SERIE_ESP, "/SERIE_ESP");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

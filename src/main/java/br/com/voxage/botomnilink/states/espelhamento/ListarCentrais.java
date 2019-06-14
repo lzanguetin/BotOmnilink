@@ -39,6 +39,8 @@ public class ListarCentrais {
                     dividas.append(String.format("%d - %s\n", i++, nome));
                 }
                 
+                bot.setQtd(i);
+                
                 botState.setInitialMessages(mensagens);
                 botState.setCustomField(BotOmnilink.STATES.LISTR_CENTRAL, dividas.toString());
                 
@@ -53,8 +55,29 @@ public class ListarCentrais {
 				String userInput = userInputs.getConcatenatedInputs();
 				dadosFluxo.setExcluir(userInput);
 				
-				if(dadosFluxo.getExcluir().matches("[0-9,]+")) {
-					botInputResult.setIntentName(BotOmnilink.STATES.REMOVER_ESP);
+				System.out.println("QUANTIDADE");
+				System.out.println(bot.getQtd());
+				
+				if(dadosFluxo.getExcluir().matches("[0-9,]+")){
+					if(dadosFluxo.getExcluir().equals(",")) {
+						botInputResult.setResult(BotInputResult.Result.ERROR);	
+					}else {
+						String a = dadosFluxo.getExcluir();
+						String[] split = a.split(",");
+						for (String string : split) {
+							if("".equals(string)) {
+								botInputResult.setResult(BotInputResult.Result.ERROR);
+							}else {
+								if(((Integer.parseInt(string)) <= bot.getQtd()-1) || ((Integer.parseInt(string)) != 0)){
+									botInputResult.setIntentName(BotOmnilink.STATES.REMOVER_ESP);
+								}else {
+									botInputResult.setResult(BotInputResult.Result.ERROR);
+								}
+							}
+						}
+					}
+				}else if("sair".equals(userInput.toLowerCase())){
+					botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 				}else {
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
@@ -72,6 +95,7 @@ public class ListarCentrais {
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.REMOVER_ESP, "/REMOVER_ESP");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

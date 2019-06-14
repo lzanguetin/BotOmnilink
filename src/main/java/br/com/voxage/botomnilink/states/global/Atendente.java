@@ -31,15 +31,13 @@ public class Atendente {
             setBotStateInteractionType(BotStateInteractionType.NO_INPUT);
             setInternalNavigationDetailIds(internalNavigationDetails);
             
+            /*
             setPreFunction(botState -> {
 
-                log.info("=================== RESUMO PARA ATENDENTE =================== ", bot.getSessionId());
-                
-                if (bot.getUserSession().containsKey("CLIENTINFO_CPF-CNPJ"))
-                    log.info("CPF-CNPJ: " + bot.getUserSession().get("CLIENTINFO_CPF-CNPJ"), bot.getSessionId());
+                log.info("=================== RESUMO PARA ATENDENTE =================== ", bot.getSessionId());         
                    
-                if (bot.getUserSession().containsKey("CLIENTINFO_Transfer"))
-                	log.info("Transf: " + bot.getUserSession().get("CLIENTINFO_Transfer"), bot.getSessionId());
+                if (bot.getUserSession().containsKey("CLIENT_INFO"))
+                	log.info("Transf: " + bot.getUserSession().get("CLIENT_INFO"), bot.getSessionId());
                 
                 log.info("============================================================= ", bot.getSessionId());
 
@@ -139,6 +137,7 @@ public class Atendente {
                 }
                 return state;
             });
+            
             setNextNavigationMap(new HashMap<String, String>() {
                 {
                     put("#FORA_HORARIO", "#FORA_HORARIO");
@@ -148,4 +147,19 @@ public class Atendente {
         };
     }
 
+}
+*/
+			setPosFunction((botState, inputResult) ->{
+				BotStateFlow botStateFlow = new BotStateFlow();
+				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
+				botStateFlow.navigationKey = "TERMINATE";
+					
+				return botStateFlow;
+			});
+				
+			setNextNavigationMap(new HashMap<String, String>(){{
+				put("TERMINATE", "/TERMINATE");
+			}});
+		}};
+	}
 }

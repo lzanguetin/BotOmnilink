@@ -1,12 +1,14 @@
 package br.com.voxage.botomnilink.states.financeiro;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.BotOmnilinkIntegration;
 import br.com.voxage.botomnilink.models.Assessoria;
 import br.com.voxage.botomnilink.models.DadosFluxo;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
@@ -25,6 +27,8 @@ public class FoneAcessoria {
 			setAsyncPosFunction((botState, inputResult) ->CompletableFuture.supplyAsync(()->{
 				BotStateFlow botStateFlow = new BotStateFlow();
 				DadosFluxo dadosFluxo= bot.getDadosFluxo();
+				List<AttendantClientInfo> att;
+				att = bot.getcInfo();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
 				Assessoria customerInfo = null;
@@ -36,7 +40,8 @@ public class FoneAcessoria {
 					if(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAssessoria()) == 0) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ESCOLHER_TITULO;
 					}else if(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAssessoria()) > 1) {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Mais de Uma Assessoria");
+						att.get(0).setValue("Mais de Uma Assessoria");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.MULTI_ASSESSORIA;
 					}else {
 						botStateFlow.navigationKey = BotOmnilink.STATES.INFO_ASSESSORIA;
@@ -45,7 +50,8 @@ public class FoneAcessoria {
 					if(bot.getError() == 404) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ESCOLHER_TITULO;
 					}else {
-						bot.getUserSession().put("CLIENTINFO_Transfer", "Erro de Integração");
+						att.get(0).setValue("Erro de Integraï¿½ï¿½o");
+						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ASSE;	
 					}
 					

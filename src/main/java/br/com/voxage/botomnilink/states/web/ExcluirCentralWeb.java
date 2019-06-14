@@ -3,27 +3,28 @@ package br.com.voxage.botomnilink.states.web;
 import java.util.HashMap;
 
 import br.com.voxage.botomnilink.BotOmnilink;
-import br.com.voxage.botomnilink.models.Central;
 import br.com.voxage.botomnilink.models.DadosFluxo;
+import br.com.voxage.botomnilink.models.Espelhamento;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
 
 public class ExcluirCentralWeb {
-	@SuppressWarnings({ "serial", "unused" })
+	@SuppressWarnings("serial")
 	public static BotState load(BotOmnilink bot) {
 		return new BotState("/") {{
 			setId("EXCLUIR_CENTRAL_WEB");
 			
-			setBotStateInteractionType(BotStateInteractionType.NO_INPUT);
+			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setPreFunction(botState ->{
 				BotStateFlow botStateFlow = new BotStateFlow();
-				Central cent = bot.getCentrais();
+				Espelhamento esp = bot.getEspelhamento();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
 				
-				botState.setCustomField("central", cent.getNome());
+				botState.setCustomField("nome", esp.getCentraisClientes().get(0).getNome());
+				System.out.println(esp.getCentraisClientes().get(0).getNome());
 				
 				return botStateFlow;
 			});
@@ -38,6 +39,12 @@ public class ExcluirCentralWeb {
 				System.out.println("!!!!!!!!!!!!!!");
 				System.out.println(userInput);
 				
+				String str = userInput.toLowerCase();
+				
+				if(str.equals("sair")) {
+					userInput = "7";
+				}
+				
 				switch(userInput) {
 					case"1 - Sim":
 						try {
@@ -46,9 +53,31 @@ public class ExcluirCentralWeb {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Não":
+					case"2 - NÃ£o":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINALIZAR_ESP);
+						}catch(Exception e){
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"1":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.REMOVER_ESP);
+						}catch(Exception e){
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2":
+						try {
+							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINALIZAR_ESP);
+						}catch(Exception e){
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
@@ -68,8 +97,9 @@ public class ExcluirCentralWeb {
 			});
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
-				put(BotOmnilink.STATES.REMOVER_ESP, "/REMOVER_ESP");
-				put(BotOmnilink.STATES.TIPO_FINALIZAR_ESP, "/TIPO_FINALIZ_ARESP");
+				put(BotOmnilink.STATES.REMOVER_ESP, "#REMOVER_ESP");
+				put(BotOmnilink.STATES.TIPO_FINALIZAR_ESP, "#TIPO_FINALIZAR_ESP");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

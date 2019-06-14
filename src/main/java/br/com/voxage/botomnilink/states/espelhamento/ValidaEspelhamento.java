@@ -44,8 +44,10 @@ public class ValidaEspelhamento {
 					else {
 						if((esp.getQtdeEspelhamentos() > 0) && (esp.getQtdeEspelhamentos() >= 2)){
 							botStateFlow.navigationKey = BotOmnilink.STATES.LISTR_CENTRAL;
-						}else {
+						}else if(esp.getQtdeEspelhamentos() == 1){
 							botStateFlow.navigationKey = BotOmnilink.STATES.TIPO_EXCLUIR_CENTRAL;
+						}else {
+							botStateFlow.navigationKey = BotOmnilink.STATES.SEM_ESP;
 						}
 					}
 				}
@@ -61,7 +63,7 @@ public class ValidaEspelhamento {
 				put(BotOmnilink.STATES.TIPO_EXCLUIR_CENTRAL, "#TIPO_EXCLUIR_CENTRAL");
 				put(BotOmnilink.STATES.MAX_PORT, "#MAX_PORT");
 				put(BotOmnilink.STATES.CNPJ_ESP, "#CNPJ_ESP");
-				
+				put(BotOmnilink.STATES.SEM_ESP, "#SEM_ESP");
                 put("MAX_INPUT_ERROR", "/TERMINATE");
                 put("MAX_NO_INPUT", "/TERMINATE");
 			}});

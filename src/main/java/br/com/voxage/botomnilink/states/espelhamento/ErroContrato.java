@@ -18,13 +18,13 @@ public class ErroContrato {
 			setPosFunction((botState, inputResult)->{
 				BotStateFlow botStateFlow = new BotStateFlow();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
-				botStateFlow.navigationKey = BotOmnilink.STATES.FINALIZAR;
+				botStateFlow.navigationKey = BotOmnilink.STATES.TIPO_FINALIZAR_ESP;
 				
 				return botStateFlow;
 			});
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
-				put(BotOmnilink.STATES.FINALIZAR, "#FINALIZAR");
+				put(BotOmnilink.STATES.TIPO_FINALIZAR_ESP, "#TIPO_FINALIZAR_ESP");
 			}});
 		}};
 	}

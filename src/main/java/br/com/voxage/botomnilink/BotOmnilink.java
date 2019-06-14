@@ -3,6 +3,7 @@ package br.com.voxage.botomnilink;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -33,6 +34,7 @@ import br.com.voxage.chat.botintegration.ISearchEngine;
 import br.com.voxage.chat.botintegration.ISearchEngineCredentials;
 import br.com.voxage.chat.botintegration.TextSearchEngine;
 import br.com.voxage.chat.botintegration.annotation.Bot;
+import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.chat.botintegration.entities.BotImageType;
 import br.com.voxage.botomnilink.models.TransferType;
 import br.com.voxage.vbot.BotContext;
@@ -71,6 +73,9 @@ public class BotOmnilink extends VBot {
 	private String option;
 	private String group;
 	private Integer error;
+	private AttendantClientInfo aInfo;
+	private List<AttendantClientInfo> cInfo;
+	private Integer qtd;
 	
 	 public interface STATES{
 		 //start
@@ -136,7 +141,7 @@ public class BotOmnilink extends VBot {
 		 String TIPO_EXCLUIR_CENTRAL = "tipo_excluir_central";
 		 String TIPO_INCLUIR_ESP = "tipo_incluir_esp";
 		 
-		//campos específicos espelhamento		 
+		//campos especï¿½ficos espelhamento		 
 		 String SERIE_ESP = "serie_esp";
 		 String CONS_CONTRATO = "cons_contrato";
 		 String OBTER_PIN = "obter_pin";
@@ -167,8 +172,9 @@ public class BotOmnilink extends VBot {
 		 String ERRO_ALTER = "erro_alter";
 		 String ERRO_CONTRATO = "erro_contrato";
 		 String SEM_SERIE = "sem_serie";
+		 String ERRO_INPUT = "erro_input";
 		 
-		//campos específicos financeiro
+		//campos especï¿½ficos financeiro
 		 String TITULOS = "titulos";
 		 String INFORME = "informe";
 		 String OBTER_TITULOS = "obter_titulos";
@@ -492,5 +498,29 @@ public class BotOmnilink extends VBot {
 
 	public void setError(Integer error) {
 		this.error = error;
+	}
+
+	public List<AttendantClientInfo> getcInfo() {
+		return cInfo;
+	}
+
+	public void setcInfo(List<AttendantClientInfo> cInfo) {
+		this.cInfo = cInfo;
+	}
+
+	public AttendantClientInfo getaInfo() {
+		return aInfo;
+	}
+
+	public void setaInfo(AttendantClientInfo aInfo) {
+		this.aInfo = aInfo;
+	}
+
+	public Integer getQtd() {
+		return qtd;
+	}
+
+	public void setQtd(Integer qtd) {
+		this.qtd = qtd;
 	}
 }

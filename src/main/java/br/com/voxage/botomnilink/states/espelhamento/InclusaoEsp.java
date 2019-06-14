@@ -15,6 +15,14 @@ public class InclusaoEsp {
 				
 				setBotStateInteractionType(BotStateInteractionType.NO_INPUT);
 				
+				
+				setPreFunction(botState ->{
+					BotStateFlow botStateFlow = new BotStateFlow();
+					botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
+		
+					return botStateFlow;
+				});
+				
 				setPosFunction((botState, inputResult) ->{
 					if(bot.getSessionId().contains("whatsapp")) {
 						return(new BotStateFlow(BotStateFlow.Flow.CONTINUE, "#INCLUSAO_ESP_WHATS"));

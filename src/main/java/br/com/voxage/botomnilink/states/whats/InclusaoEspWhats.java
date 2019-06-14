@@ -22,10 +22,20 @@ public class InclusaoEspWhats {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs().trim();
+				String userInput = userInputs.getConcatenatedInputs();
 				
-				switch(userInput) {
-					case"1 – Espelhamento de Sinal ou Retirada":
+				System.out.println("!!!!!!!!!!!!!!");
+				System.out.println(userInput);
+				final String str = userInput;
+				
+				String strg = userInput.toLowerCase();
+				
+				if(strg.equals("sair")) {
+					userInput = "7";
+				}
+				
+				switch(str) {
+					case "1 - Espelhamento de Sinal ou Retirada":
 						try {
 							dadosFluxo.setStatus(1);
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
@@ -33,7 +43,7 @@ public class InclusaoEspWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 – Outros Assuntos":
+					case"2 - Outros Assuntos":
 						try {
 							dadosFluxo.setStatus(2);
 							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
@@ -41,11 +51,43 @@ public class InclusaoEspWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 – Finalizar":
+					case"3 - Finalizar":
 						try {
 							dadosFluxo.setStatus(3);
 							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "1":
+						try {
+							dadosFluxo.setStatus(1);
+							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"2":
+						try {
+							dadosFluxo.setStatus(2);
+							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case"3":
+						try {
+							dadosFluxo.setStatus(3);
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e) {
+							botInputResult.setResult(BotInputResult.Result.ERROR);
+						}
+						break;
+					case "7":
+						try {
+							dadosFluxo.setOption("7");
+							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
@@ -68,7 +110,7 @@ public class InclusaoEspWhats {
 				put(BotOmnilink.STATES.OUTROS, "/OUTROS");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR");
+                put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});
 		}};
 	}

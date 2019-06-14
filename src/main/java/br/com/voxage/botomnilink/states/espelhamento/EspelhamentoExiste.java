@@ -51,10 +51,16 @@ public class EspelhamentoExiste {
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
 				String userInput = userInputs.getConcatenatedInputs();
-				dadosFluxo.getExcluir();
 				
+				bot.getDadosFluxo().setExcluir(userInput);
+							
 				if((Integer.parseInt(userInput) >= 1) &&(Integer.parseInt(userInput) <= 8)) {
+					dadosFluxo.setExcluir(userInput);
+					System.out.println(userInput);
+					System.out.println(dadosFluxo.getExcluir());
 					botInputResult.setIntentName(BotOmnilink.STATES.INC_EXIST);
+				}else if("sair".equals(userInput.toLowerCase())){
+					botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 				}else {
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
@@ -72,6 +78,7 @@ public class EspelhamentoExiste {
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.INC_EXIST, "/INC_EXIST");
+				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR"); 
 			}});

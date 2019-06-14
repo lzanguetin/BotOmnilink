@@ -1,7 +1,13 @@
 package br.com.voxage.botomnilink;
 
+import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
+
+import java.util.HashMap;
+import java.util.concurrent.CancellationException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import br.com.voxage.botomnilink.BotOmnilink;
+import com.google.gson.JsonSyntaxException;
+
 import br.com.voxage.botomnilink.models.AlteradoExistente;
 import br.com.voxage.botomnilink.models.Assessoria;
 import br.com.voxage.botomnilink.models.Authorization;
@@ -16,15 +22,10 @@ import br.com.voxage.botomnilink.models.InfoRemover;
 import br.com.voxage.botomnilink.models.PIN;
 import br.com.voxage.botomnilink.models.Remover;
 import br.com.voxage.botomnilink.models.Titulos;
-import br.com.voxage.botomnilink.models.TokenMicro;
 import br.com.voxage.botomnilink.models.Token;
-
-import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
+import br.com.voxage.botomnilink.models.TokenMicro;
 import br.com.voxage.chat.botintegration.utils.AsyncHttpUtils;
 import br.com.voxage.chat.botintegration.utils.JsonUtils;
-
-import com.google.gson.JsonSyntaxException;
-import java.util.HashMap;
 
 public class BotOmnilinkIntegration {
 	private static final String BASE_URL = "http://localhost:8080/";
@@ -60,7 +61,11 @@ public class BotOmnilinkIntegration {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(e));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -107,6 +112,10 @@ public class BotOmnilinkIntegration {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
+	                    }catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
 	                    } catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
@@ -148,13 +157,20 @@ public class BotOmnilinkIntegration {
 	                        	case 404:
 	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -195,13 +211,20 @@ public class BotOmnilinkIntegration {
 	                        	case 404:
 	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    }catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -242,13 +265,20 @@ public class BotOmnilinkIntegration {
 	                        	case 404:
 	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -286,13 +316,23 @@ public class BotOmnilinkIntegration {
 	                        	case 500:
 	                        		bot.setError(500);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 404:
+	                        		bot.setError(404);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -333,13 +373,20 @@ public class BotOmnilinkIntegration {
 	                        	case 404:
 	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -380,13 +427,20 @@ public class BotOmnilinkIntegration {
 	                        	case 404:
 	                        		bot.setError(404);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
 	                    } catch( JsonSyntaxException e ) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -426,6 +480,13 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, EnvTitulos.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 404:
+	                        		bot.setError(404);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -433,7 +494,11 @@ public class BotOmnilinkIntegration {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -471,6 +536,13 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Incluido.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 404:
+	                        		bot.setError(404);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -478,7 +550,11 @@ public class BotOmnilinkIntegration {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -518,6 +594,13 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, AlteradoExistente.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 404:
+	                        		bot.setError(404);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -525,7 +608,11 @@ public class BotOmnilinkIntegration {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );
@@ -565,6 +652,13 @@ public class BotOmnilinkIntegration {
 	                        		customerInfo = JsonUtils.parseJson(json, Remover.class);
 	                                break;
 	                        	case 500:
+	                        		bot.setError(500);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 404:
+	                        		bot.setError(404);
+	                            	throw(new RuntimeException(resp.getResponseBody()));
+	                        	case 400:
+	                        		bot.setError(400);
 	                            	throw(new RuntimeException(resp.getResponseBody()));
 	                        }
 	                        return( customerInfo );
@@ -572,7 +666,11 @@ public class BotOmnilinkIntegration {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new JsonSyntaxException(e) );
-	                    } catch(Exception e) {
+	                    } catch(CancellationException e){
+                    		bot.setError(500);
+                    		log.error("500 - Chamada assíncrona demorando muito para completar, encerrando por erro !", e, bot.getSessionId());
+                        	throw(new RuntimeException(resp.getResponseBody()));
+	                    }catch(Exception e) {
 	                        log.error(resp.getResponseBody(), bot.getSessionId());
 	                        log.error("Erro ao fazer parse do json", e, bot.getSessionId());
 	                        throw( new RuntimeException(e) );

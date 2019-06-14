@@ -23,12 +23,14 @@ public class CnpjEspelhamento {
 				DadosFluxo dadosFluxo = bot.getDadosFluxo();
 				botInputResult.setResult(BotInputResult.Result.OK);
 				
-				String userInput = userInputs.getConcatenatedInputs().replaceAll("\\D+", "");;
+				String userInput = userInputs.getConcatenatedInputs().replaceAll("[/.-]", "");;
 				
 				if((CNPJValidator.isValidCNPJ(userInput)) == true){
 					dadosFluxo.setCnpjEsp(userInput);
-					botInputResult.setResult(BotInputResult.Result.OK);
-				}else {
+					botInputResult.setIntentName(BotOmnilink.STATES.PORTA_ESP);
+				}else if("sair".equals(userInput.toLowerCase())){
+					botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
+				}else{
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}
 					
@@ -38,13 +40,14 @@ public class CnpjEspelhamento {
 			setPosFunction((botState, inputResult) ->{
 				BotStateFlow botStateFlow = new BotStateFlow();
 				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
-				botStateFlow.navigationKey = BotOmnilink.STATES.PORTA_ESP;
+				botStateFlow.navigationKey = inputResult.getIntentName();
 				
 				return botStateFlow;
 			});
 			
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.PORTA_ESP, "#PORTA_ESP");
+				put(BotOmnilink.STATES.FINALIZAR, "#FINALIZAR");
                 put("MAX_INPUT_ERROR", "/FINALIZAR");
                 put("MAX_NO_INPUT", "/FINALIZAR");
 			}});
