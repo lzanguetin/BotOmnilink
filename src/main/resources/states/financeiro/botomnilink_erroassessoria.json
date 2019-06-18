@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/ERRO_ASSE",
-			"idNavigationDetail": 12610,
+			"idNavigationDetail": 9997,
 			"initialMessages": ["Desculpe, mas houve um problema ao consultar os telefones da assessoria financeira..."]
 		}
 	]

@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/INCLUIR_ESP_WEB",
-			"idNavigationDetail": 11801,
+			"idNavigationDetail": 11800,
 			"initialMessages": [{  
                     "message": "Deseja incluir um espelhamento?",
                     "options": [  

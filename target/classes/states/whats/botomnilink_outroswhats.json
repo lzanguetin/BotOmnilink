@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/OUTROS_WHATS",
-			"idNavigationDetail": 12350,
+			"idNavigationDetail": 12300,
 			"initialMessages": [{  
                     "message": "Você deseja:",
                     "options": [  

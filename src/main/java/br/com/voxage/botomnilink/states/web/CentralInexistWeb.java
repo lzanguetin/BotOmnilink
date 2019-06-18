@@ -33,22 +33,22 @@ public class CentralInexistWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-				case"1 - Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central":
+				switch(userInput.toLowerCase()) {
+				case"1 - alterar o cnpj e a porta para espelhar o sinal para outra central":
 					try {
 						botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
 					}catch(Exception e) {
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 					}
 					break;
-				case"2 - Falar de Outros Assuntos":
+				case"2 - falar de outros assuntos":
 					try {
 						botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
 					}catch(Exception e) {
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 					}
 					break;
-				case"3 - Finalizar Atendimento":
+				case"3 - finalizar atendimento":
 					try {
 						botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 					}catch(Exception e) {

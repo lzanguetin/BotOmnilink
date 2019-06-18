@@ -4,7 +4,7 @@
 			"id": "/MENU_WEB",
 			"idNavigationDetail": 10000,
 			"initialMessages": [{  
-                    "message": "Olá! Bem-vindo ao atendimento Omnilink\n Qual assunto deseja tratar:",
+                    "message": "Olá! Bem-vindo ao atendimento Omnilink\nQual assunto deseja tratar:",
                     "options": [  
                         {  
                             "text": "1 - Agendamento"

@@ -34,22 +34,22 @@ public class RetiradaEspWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Retirada ou Espelhamento de Sinal":
+				switch(userInput.toLowerCase()) {
+					case"1 - retirada ou espelhamento de sinal":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Outros Assuntos":
+					case"2 - outros assuntos":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Finalizar":
+					case"3 - finalizar":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 						}catch(Exception e) {

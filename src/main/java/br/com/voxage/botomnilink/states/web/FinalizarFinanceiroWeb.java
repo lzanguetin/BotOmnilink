@@ -32,22 +32,22 @@ public class FinalizarFinanceiroWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Tratar outro assunto financeiro":
+				switch(userInput.toLowerCase()) {
+					case"1 - tratar outro assunto financeiro":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINANCEIRO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Falar de outros assuntos":
+					case"2 - falar de outros assuntos":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Finalizar":
+					case"3 - finalizar":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 						}catch(Exception e) {

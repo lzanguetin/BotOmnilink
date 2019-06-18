@@ -6,9 +6,9 @@ import java.util.concurrent.CompletableFuture;
 
 import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.BotOmnilinkIntegration;
+import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
-import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.models.DadosFluxo;
 import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
-import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.vbot.BotInputResult;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
@@ -46,8 +46,8 @@ public class MenuWhats {
 				System.out.println("!!!!!!!!!!!!!!");
 				System.out.println(userInput);
 				
-				switch(userInput) {
-					case"1 - Agendamento":
+				switch(userInput.toLowerCase()) {
+					case"1 - agendamento":
 						try {
 							dadosFluxo.setOption("1");
 							botInputResult.setIntentName(BotOmnilink.STATES.AGENDAMENTO);
@@ -55,7 +55,7 @@ public class MenuWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Cancelamento de Contrato":
+					case"2 - cancelamento de contrato":
 						try {
 							dadosFluxo.setOption("2");
 							botInputResult.setIntentName(BotOmnilink.STATES.CANCELAMENTO);
@@ -63,7 +63,7 @@ public class MenuWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Espelhamento de Sinal":
+					case"3 - espelhamento de sinal":
 						try {
 							dadosFluxo.setOption("3");
 							botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
@@ -71,7 +71,7 @@ public class MenuWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"4 - Financeiro":
+					case"4 - financeiro":
 						try {
 							dadosFluxo.setOption("4");
 							botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
@@ -79,7 +79,7 @@ public class MenuWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"5 - Suporte":
+					case"5 - suporte":
 						try {
 							dadosFluxo.setOption("5");
 							botInputResult.setIntentName(BotOmnilink.STATES.SUPORTE);
@@ -87,7 +87,7 @@ public class MenuWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"6 - Ativação":
+					case"6 - ativação":
 						try {
 							dadosFluxo.setOption("6");
 							botInputResult.setIntentName(BotOmnilink.STATES.ATIVACAO);

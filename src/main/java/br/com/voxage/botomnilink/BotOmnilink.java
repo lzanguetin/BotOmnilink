@@ -1,5 +1,7 @@
 package br.com.voxage.botomnilink;
 
+import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,8 +11,6 @@ import java.util.Properties;
 
 import com.google.gson.Gson;
 
-import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
-
 import br.com.voxage.botomnilink.models.AlteradoExistente;
 import br.com.voxage.botomnilink.models.Assessoria;
 import br.com.voxage.botomnilink.models.Centrais;
@@ -18,7 +18,6 @@ import br.com.voxage.botomnilink.models.Central;
 import br.com.voxage.botomnilink.models.Clientes;
 import br.com.voxage.botomnilink.models.Contratos;
 import br.com.voxage.botomnilink.models.DadosFluxo;
-import br.com.voxage.botomnilink.models.Titulos;
 import br.com.voxage.botomnilink.models.EnvTitulos;
 import br.com.voxage.botomnilink.models.Envio;
 import br.com.voxage.botomnilink.models.Espelhamento;
@@ -28,15 +27,16 @@ import br.com.voxage.botomnilink.models.Incluir;
 import br.com.voxage.botomnilink.models.InfoRemover;
 import br.com.voxage.botomnilink.models.PIN;
 import br.com.voxage.botomnilink.models.Remover;
-import br.com.voxage.botomnilink.models.TokenMicro;
+import br.com.voxage.botomnilink.models.Titulos;
 import br.com.voxage.botomnilink.models.Token;
+import br.com.voxage.botomnilink.models.TokenMicro;
+import br.com.voxage.botomnilink.models.TransferType;
 import br.com.voxage.chat.botintegration.ISearchEngine;
 import br.com.voxage.chat.botintegration.ISearchEngineCredentials;
 import br.com.voxage.chat.botintegration.TextSearchEngine;
 import br.com.voxage.chat.botintegration.annotation.Bot;
 import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.chat.botintegration.entities.BotImageType;
-import br.com.voxage.botomnilink.models.TransferType;
 import br.com.voxage.vbot.BotContext;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateInteractionType;

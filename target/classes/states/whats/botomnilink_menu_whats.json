@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/MENU_WHATS",
-			"idNavigationDetail": 10050,
+			"idNavigationDetail": 10000,
 			"initialMessages": [{  
                     "message": "Olá! Bem-vindo ao atendimento Omnilink\nQual assunto deseja tratar:",
                     "options": [  

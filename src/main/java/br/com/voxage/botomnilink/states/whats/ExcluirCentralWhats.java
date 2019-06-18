@@ -45,15 +45,15 @@ public class ExcluirCentralWhats {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Sim":
+				switch(userInput.toLowerCase()) {
+					case"1 - sim":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.REMOVER_ESP);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Não":
+					case"2 - não":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_FINALIZAR_ESP);
 						}catch(Exception e){

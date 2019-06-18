@@ -43,22 +43,22 @@ public class FinanceiroWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Segunda via de Boletos":
+				switch(userInput.toLowerCase()) {
+					case"1 - segunda via de boletos":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TITULOS);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Informar um Pagamento":
+					case"2 - informar um pagamento":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.INFORME);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Outros Assuntos Financeiros":
+					case"3 - outros assuntos financeiros":
 						try {
 							att.get(0).setValue("Demandas Financeiras - Outros Assuntos");
 							bot.setcInfo(att);

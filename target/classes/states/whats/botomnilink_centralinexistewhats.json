@@ -2,18 +2,18 @@
 	"states":[
 		{
 			"id": "/CENT_INEXIST_WHATS",
-			"idNavigationDetail": 12202,
+			"idNavigationDetail": 12200,
 			"initialMessages": [{  
                     "message": "Você deseja:",
                     "options": [  
                         {  
-                            "text": "1 – Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central"
+                            "text": "1 - Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central"
                         },
                         {  
-                            "text": "2 – Falar de Outros Assuntos"
+                            "text": "2 - Falar de Outros Assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar Atendimento"
+                            "text": "3 - Finalizar Atendimento"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
@@ -23,13 +23,13 @@
                     "message": "A opção que você informou não é válida.\nVocê deseja:",
                     "options": [  
                         {  
-                            "text": "1 – Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central"
+                            "text": "1 - Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central"
                         },
                         {  
-                            "text": "2 – Falar de Outros Assuntos"
+                            "text": "2 - Falar de Outros Assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar Atendimento"
+                            "text": "3 - Finalizar Atendimento"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
@@ -38,13 +38,13 @@
                     "message": "Você digitou novamente uma opção inválida.\nVocê quer:",
                     "options": [  
                         {  
-                            "text": "1 – Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central"
+                            "text": "1 - Alterar o CNPJ e a Porta para Espelhar o Sinal para outra Central"
                         },
                         {  
-                            "text": "2 – Falar de Outros Assuntos"
+                            "text": "2 - Falar de Outros Assuntos"
                         },
 						{  
-                            "text": "3 – Finalizar Atendimento"
+                            "text": "3 - Finalizar Atendimento"
                         }
                     ],
                     "messageType": "TEXT_ONLY"

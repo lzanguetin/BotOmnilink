@@ -2,18 +2,18 @@
 	"states":[
 		{
 			"id": "/ESCOLHER_TITULO_WHATS",
-			"idNavigationDetail": 12701,
+			"idNavigationDetail": 12700,
 			"initialMessages": [{  
                     "message": "Você possui boletos que irão vencer e boletos atrasados. Quais deseja receber?",
                     "options": [  
                         {  
-                            "text": "1 – Boletos a Vencer"
+                            "text": "1 - Boletos a Vencer"
                         },
                         {  
-                            "text": "2 – Boletos Atrasados"
+                            "text": "2 - Boletos Atrasados"
                         },
 						{  
-                            "text": "3 – Todos os Boletos Pendentes"
+                            "text": "3 - Todos os Boletos Pendentes"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
@@ -23,13 +23,13 @@
                     "message": "A opção que você informou não é válida. Quais boletos deseja receber?",
                     "options": [  
                         {  
-                            "text": "1 – Boletos a Vencer"
+                            "text": "1 - Boletos a Vencer"
                         },
                         {  
-                            "text": "2 – Boletos Atrasados"
+                            "text": "2 - Boletos Atrasados"
                         },
 						{  
-                            "text": "3 – Todos os Boletos Pendentes"
+                            "text": "3 - Todos os Boletos Pendentes"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
@@ -38,13 +38,13 @@
                     "message": "A opção que você informou ainda não é válida. Eu preciso saber quais boletos você quer receber:",
                     "options": [  
                         {  
-                            "text": "1 – Boletos a Vencer"
+                            "text": "1 - Boletos a Vencer"
                         },
                         {  
-                            "text": "2 – Boletos Atrasados"
+                            "text": "2 - Boletos Atrasados"
                         },
 						{  
-                            "text": "3 – Todos os Boletos Pendentes"
+                            "text": "3 - Todos os Boletos Pendentes"
                         }
                     ],
                     "messageType": "TEXT_ONLY"

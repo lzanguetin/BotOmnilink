@@ -34,8 +34,8 @@ public class InclusaoEspWhats {
 					userInput = "7";
 				}
 				
-				switch(str) {
-					case "1 - Espelhamento de Sinal ou Retirada":
+				switch(str.toLowerCase()) {
+					case "1 - espelhamento de sinal ou retirada":
 						try {
 							dadosFluxo.setStatus(1);
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
@@ -43,7 +43,7 @@ public class InclusaoEspWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Outros Assuntos":
+					case"2 - outros assuntos":
 						try {
 							dadosFluxo.setStatus(2);
 							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
@@ -51,7 +51,7 @@ public class InclusaoEspWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Finalizar":
+					case"3 - finalizar":
 						try {
 							dadosFluxo.setStatus(3);
 							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);

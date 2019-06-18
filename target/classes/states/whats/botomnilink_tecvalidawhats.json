@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/TEC_VALIDA_WHATS",
-			"idNavigationDetail": 11009,
+			"idNavigationDetail": 11008,
 			"initialMessages": [{  
                     "message": "Deseja retirar espelhamento?",
                     "options": [  

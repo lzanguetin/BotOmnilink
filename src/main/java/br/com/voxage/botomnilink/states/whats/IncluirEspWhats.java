@@ -33,15 +33,15 @@ public class IncluirEspWhats {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"Sim":
+				switch(userInput.toLowerCase()) {
+					case"sim":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.CNPJ_ESP);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"Não":
+					case"não":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.RETIRAR_ESP);
 						}catch(Exception e) {

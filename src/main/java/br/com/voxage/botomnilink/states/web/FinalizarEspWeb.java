@@ -33,22 +33,22 @@ public class FinalizarEspWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Consultar outro número de série":
+				switch(userInput.toLowerCase()) {
+					case"1 - consultar outro número de série":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.TIPO_ESPELHAMENTO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Falar de outros assuntos":
+					case"2 - falar de outros assuntos":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OUTROS);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Finalizar atendimento":
+					case"3 - finalizar atendimento":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 						}catch(Exception e){

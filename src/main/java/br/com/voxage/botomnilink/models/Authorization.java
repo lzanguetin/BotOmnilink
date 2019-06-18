@@ -1,8 +1,9 @@
 package br.com.voxage.botomnilink.models;
 
-import br.com.voxage.botomnilink.BotOmnilink;
 import java.util.HashMap;
 import java.util.Map;
+
+import br.com.voxage.botomnilink.BotOmnilink;
 
 public class Authorization {
     

@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/CONFIRMA_ENVIO",
-			"idNavigationDetail": 12802,
+			"idNavigationDetail": 12801,
 			"initialMessages": ["Pronto, está tudo ok. Enviamos os boletos solicitados para o seu email cadastrado. Se você não receber os boletos e tiver algum problema, por favor retorne o contato conosco e nos informe o seguinte número de ocorrência: #num#."]
 		}
 	]

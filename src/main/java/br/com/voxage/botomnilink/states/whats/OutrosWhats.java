@@ -38,22 +38,22 @@ public class OutrosWhats {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Agendamento":
+				switch(userInput.toLowerCase()) {
+					case"1 - agendamento":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OAGENDAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Cancelamento de Contrato":
+					case"2 - cancelamento de contrato":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OCANCELAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Espelhamento de Sinal":
+					case"3 - espelhamento de sinal":
 						try {
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("3");
@@ -65,7 +65,7 @@ public class OutrosWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"4 - Financeiro":
+					case"4 - financeiro":
 						try {
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("4");
@@ -77,14 +77,14 @@ public class OutrosWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"5 - Suporte":
+					case"5 - suporte":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OSUPORTE);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"6 - Ativação":
+					case"6 - ativação":
 						try {
 							botInputResult.setIntentName(BotOmnilink.STATES.OATIVACAO);
 						}catch(Exception e) {

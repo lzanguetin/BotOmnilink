@@ -1,5 +1,7 @@
 package br.com.voxage.botomnilink.states.financeiro;
 
+import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -12,7 +14,6 @@ import br.com.voxage.chat.botintegration.entities.AttendantClientInfo;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
-import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
 
 
 public class FoneAcessoria {

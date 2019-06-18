@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/RETIRAR_ESP_WEB",
-			"idNavigationDetail": 11501,
+			"idNavigationDetail": 11500,
 			"initialMessages": [{  
                     "message": "Agora que a retirada foi concluída, você deseja realizar outra retirada ou espelhamento de sinal, falar de outros assuntos ou finalizar o atendimento?",
                     "options": [  

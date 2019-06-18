@@ -1,16 +1,16 @@
 package br.com.voxage.botomnilink.states.global;
 
-import java.util.Map;
-
 import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
 
 import java.util.HashMap;
+import java.util.Map;
+
 import br.com.voxage.botomnilink.BotOmnilink;
+import br.com.voxage.botomnilink.models.DadosFluxo;
+import br.com.voxage.botomnilink.models.TransferType;
 import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
-import br.com.voxage.botomnilink.models.DadosFluxo;
-import br.com.voxage.botomnilink.models.TransferType;
 
 public class Atendente {
     @SuppressWarnings("serial")
@@ -31,7 +31,7 @@ public class Atendente {
             setBotStateInteractionType(BotStateInteractionType.NO_INPUT);
             setInternalNavigationDetailIds(internalNavigationDetails);
             
-            /*
+            
             setPreFunction(botState -> {
 
                 log.info("=================== RESUMO PARA ATENDENTE =================== ", bot.getSessionId());         
@@ -147,19 +147,4 @@ public class Atendente {
         };
     }
 
-}
-*/
-			setPosFunction((botState, inputResult) ->{
-				BotStateFlow botStateFlow = new BotStateFlow();
-				botStateFlow.flow = BotStateFlow.Flow.CONTINUE;
-				botStateFlow.navigationKey = "TERMINATE";
-					
-				return botStateFlow;
-			});
-				
-			setNextNavigationMap(new HashMap<String, String>(){{
-				put("TERMINATE", "/TERMINATE");
-			}});
-		}};
-	}
 }

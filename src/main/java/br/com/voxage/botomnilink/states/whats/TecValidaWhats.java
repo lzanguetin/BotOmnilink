@@ -34,8 +34,8 @@ public class TecValidaWhats {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"Sim":
+				switch(userInput.toLowerCase()) {
+					case"sim":
 						try {
 							if((esp.getQtdeEspelhamentos() > 0) && (esp.getQtdeEspelhamentos() >= 2)){
 								botInputResult.setIntentName(BotOmnilink.STATES.LISTR_CENTRAL);
@@ -47,7 +47,7 @@ public class TecValidaWhats {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"Não":
+					case"não":
 						try {
 							if(esp.getQtdeEspelhamentos() >= 8) {
 								botInputResult.setIntentName(BotOmnilink.STATES.MAX_PORT);

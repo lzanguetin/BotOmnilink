@@ -39,8 +39,8 @@ public class EspelhamentoWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-				case"1 - Efetuar":
+				switch(userInput.toLowerCase()) {
+				case"1 - efetuar":
 					try {
 						dadosFluxo.setEspelha(1);
 						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);
@@ -48,7 +48,7 @@ public class EspelhamentoWeb {
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 					}
 					break;
-				case"2 - Retirar":
+				case"2 - retirar":
 					try {
 						dadosFluxo.setEspelha(2);
 						botInputResult.setIntentName(BotOmnilink.STATES.SERIE_ESP);

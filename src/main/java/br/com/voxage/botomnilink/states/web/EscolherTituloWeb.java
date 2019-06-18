@@ -32,8 +32,8 @@ public class EscolherTituloWeb {
 					userInput = "7";
 				}
 				
-				switch(userInput) {
-					case"1 - Boletos a Vencer":
+				switch(userInput.toLowerCase()) {
+					case"1 - boletos a vencer":
 						try {
 							dadosFluxo.setTitle(1);
 							dadosFluxo.setStatus(1);
@@ -42,7 +42,7 @@ public class EscolherTituloWeb {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"2 - Boletos Atrasados":
+					case"2 - boletos atrasados":
 						try {
 							dadosFluxo.setTitle(2);
 							dadosFluxo.setStatus(2);
@@ -51,7 +51,7 @@ public class EscolherTituloWeb {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
 						break;
-					case"3 - Todos os Boletos Pendentes":
+					case"3 - todos os boletos pendentes":
 						try {
 							dadosFluxo.setTitle(3);
 							dadosFluxo.setStatus(3);

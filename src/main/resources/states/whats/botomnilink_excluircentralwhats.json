@@ -2,15 +2,16 @@
 	"states":[
 		{
 			"id": "/EXCLUIR_CENTRAL_WHATS",
-			"idNavigationDetail": 11301,
-			"initialMessages": [{  
-                    "message": "A única central espelhada é: #central#\nVocê ainda quer excluí-la?",
+			"idNavigationDetail": 11300,
+			"initialMessages": ["A única central espelhada é: #nome#",
+					{ 
+					"message": "Você ainda quer excluí-la?",
                     "options": [  
                         {  
-                            "text": "1 – Sim"
+                            "text": "1 - Sim"
                         },
                         {  
-                            "text": "2 – Não"
+                            "text": "2 - Não"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
@@ -20,10 +21,10 @@
                     "message": "A opção que você informou não é válida. Eu preciso saber se você quer excluir esta central.",
                     "options": [  
                         {  
-                            "text": "1 – Sim"
+                            "text": "1 - Sim"
                         },
                         {  
-                            "text": "2 – Não"
+                            "text": "2 - Não"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
@@ -32,10 +33,10 @@
                     "message": "Você informou novamente uma opção inválida. Você quer excluir a central?",
                     "options": [  
                         {  
-                            "text": "1 – Sim"
+                            "text": "1 - Sim"
                         },
                         {  
-                            "text": "2 – Não"
+                            "text": "2 - Não"
                         }
                     ],
                     "messageType": "TEXT_ONLY"
