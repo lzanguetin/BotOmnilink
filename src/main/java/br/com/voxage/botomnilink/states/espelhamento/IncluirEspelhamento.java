@@ -47,7 +47,7 @@ public class IncluirEspelhamento {
 					customerInfo = BotOmnilinkIntegration.addEspelhamentoCnpj(bot, incluir);
 					bot.setInc(customerInfo);
 					if("-2".equals(bot.getInc().getStatus())){
-						att.get(0).setValue("Incluir Espelhamento - Erro na Execu��o");
+						att.get(0).setValue("Incluir Espelhamento - Erro na Execução");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INC;
 					}else if("1".equals(bot.getInc().getStatus())){
@@ -58,7 +58,7 @@ public class IncluirEspelhamento {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CENT_INEXIST;
 					}
 				}catch(Exception e) {
-					att.get(0).setValue("Incluir Espelhamento - Erro de Execu��o");
+					att.get(0).setValue("Incluir Espelhamento - Erro de Execução");
 					bot.setcInfo(att);
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INC;
 				}				

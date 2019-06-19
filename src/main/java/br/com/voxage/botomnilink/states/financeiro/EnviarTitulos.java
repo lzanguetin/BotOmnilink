@@ -56,7 +56,7 @@ public class EnviarTitulos {
 						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 					}						
 				}catch(Exception e) {
-					att.get(0).setValue("Enviar Titulo - Erro de Integra��o");
+					att.get(0).setValue("Enviar Titulo - Erro de Integração");
 					bot.setcInfo(att);
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ENVIO;
 				}

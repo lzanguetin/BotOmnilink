@@ -54,12 +54,12 @@ public class IncluirEspExistente {
 					if("true".equals(bot.getAlter().getSucesso())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.INCLUSAO_ESP;
 					}else {
-						att.get(0).setValue("Incluir Espelhamento - N�o Permitido");
+						att.get(0).setValue("Incluir Espelhamento - Não Permitido");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ALTER;
 					}	
 				}catch(Exception e) {
-					att.get(0).setValue("Incluir Espelhamento - Erro de Integra��o");
+					att.get(0).setValue("Incluir Espelhamento - Erro de Integração");
 					bot.setcInfo(att);
 					inputResult.setResult(BotInputResult.Result.ERROR);
 				}				

@@ -42,17 +42,17 @@ public class ConsultaEspelhamento {
 						botStateFlow.navigationKey = BotOmnilink.STATES.VALIDAR_ESP;	
 					}catch(Exception e) {
 						if(bot.getError() == 500) {
-							att.get(0).setValue("Consultar Espelhamento - Erro Integra��o");
+							att.get(0).setValue("Consultar Espelhamento - Erro Integração");
 							bot.setcInfo(att);
 							botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 						}else {
-							att.get(0).setValue("Consultar Espelhamento - Erro Integra��o");
+							att.get(0).setValue("Consultar Espelhamento - Erro Integração");
 							bot.setcInfo(att);
 							botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;
 						}	
 					}
 				}catch(Exception e) {
-					att.get(0).setValue("Consultar Espelhamento - Erro Integra��o");
+					att.get(0).setValue("Consultar Espelhamento - Erro Integração");
 					bot.setcInfo(att);
 					botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_INTEGRA_ESP;
 				}

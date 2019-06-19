@@ -59,12 +59,12 @@ public class RemoverEspelhamento {
 								botStateFlow.navigationKey = BotOmnilink.STATES.RETIRAR_ESP;
 							}
 						}else {
-							att.get(0).setValue("Remover Espelhamento - Erro de Integra��o");
+							att.get(0).setValue("Remover Espelhamento - Erro de Integração");
 							bot.setcInfo(att);
 							botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_REMOVER;
 						}
 					}catch(Exception e){
-						att.get(0).setValue("Remover Espelhamento - Erro de Integra��o");
+						att.get(0).setValue("Remover Espelhamento - Erro de Integração");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_REMOVER;
 					}
@@ -115,12 +115,12 @@ public class RemoverEspelhamento {
 											botStateFlow.navigationKey = BotOmnilink.STATES.RETIRAR_ESP;
 										}
 									}else {
-										att.get(0).setValue("Remover Espelhamento - Erro de Integra��o");
+										att.get(0).setValue("Remover Espelhamento - Erro de Integração");
 										bot.setcInfo(att);
 										botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_REMOVER;
 									}
 								}catch(Exception e){
-									att.get(0).setValue("Remover Espelhamento - Erro de Integra��o");
+									att.get(0).setValue("Remover Espelhamento - Erro de Integração");
 									bot.setcInfo(att);
 									botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_REMOVER;
 								}

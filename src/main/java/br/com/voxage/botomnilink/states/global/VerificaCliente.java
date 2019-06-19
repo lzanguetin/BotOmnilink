@@ -43,11 +43,11 @@ public class VerificaCliente {
 					}					
 				}catch(Exception e){
 					if(bot.getError() == 500) {
-						att.get(0).setValue("Verifica Cliente - Erro de Integra��o");
+						att.get(0).setValue("Verifica Cliente - Erro de Integração");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
 					}else {
-						att.get(0).setValue("Verifica Cliente - Cliente n�o Localizado");
+						att.get(0).setValue("Verifica Cliente - Cliente não Localizado");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ATENDENTE;
 					}					

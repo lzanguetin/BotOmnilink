@@ -34,7 +34,7 @@ public class PortaEspelhamento {
 					dadosFluxo.setPortaEsp(userInput);
 					botInputResult.setIntentName(BotOmnilink.STATES.INCLUIR_ESP);
 				}else {
-					att.get(0).setValue("Obter Porta Espelhamento - Porta Inv�lida");
+					att.get(0).setValue("Obter Porta Espelhamento - Porta Inválida");
 					bot.setcInfo(att);
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}

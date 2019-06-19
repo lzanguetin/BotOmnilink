@@ -34,7 +34,7 @@ public class ObterPIN {
 				}else if("sair".equals(userInput.toLowerCase())){
 					botInputResult.setIntentName(BotOmnilink.STATES.FINALIZAR);
 				}else{
-					att.get(0).setValue("Obter PIN - PIN Inv�lido");
+					att.get(0).setValue("Obter PIN - PIN Inválido");
 					bot.setcInfo(att);
 					botInputResult.setResult(BotInputResult.Result.ERROR);
 				}

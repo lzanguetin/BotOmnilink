@@ -34,7 +34,7 @@ public class SerieEspelhamento {
 					}else if((dadosFluxo.getSerie().matches("[0-9,]+")) && (dadosFluxo.getSerie().length() >= 1) && (dadosFluxo.getSerie().length() <= 24)) {
 						botInputResult.setIntentName(BotOmnilink.STATES.CONS_CONTRATO);
 					}else {
-						att.get(0).setValue("Obter S�rie Espelhamento - S�rie Inv�lida");
+						att.get(0).setValue("Obter S�rie Espelhamento - Série Inválida");
 						bot.setcInfo(att);
 						botInputResult.setResult(BotInputResult.Result.ERROR);
 					}

@@ -42,17 +42,17 @@ public class ValidarPIN {
 					if("true".equals(bot.getPIN().getCodigoValido())) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.CONSULTAR_ESP;
 					}else {
-						att.get(0).setValue("Validar PIN - PIN Inv�lido");
+						att.get(0).setValue("Validar PIN - PIN Inválido");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
 					}	
 				}catch(Exception e) {
 					if(bot.getError() == 500) {
-						att.get(0).setValue("Validar PIN - PIN Inv�lido");
+						att.get(0).setValue("Validar PIN - PIN Inválido");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_PIN;
 					}else {
-						att.get(0).setValue("Validar PIN - PIN Inv�lido");
+						att.get(0).setValue("Validar PIN - PIN Inválido");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;	
 					}	

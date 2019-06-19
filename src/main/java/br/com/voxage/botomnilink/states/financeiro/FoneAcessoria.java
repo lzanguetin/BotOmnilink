@@ -51,7 +51,7 @@ public class FoneAcessoria {
 					if(bot.getError() == 404) {
 						botStateFlow.navigationKey = BotOmnilink.STATES.ESCOLHER_TITULO;
 					}else {
-						att.get(0).setValue("Erro de Integra��o");
+						att.get(0).setValue("Erro de Integração");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_ASSE;	
 					}

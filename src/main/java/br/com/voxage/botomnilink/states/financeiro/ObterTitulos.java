@@ -35,7 +35,7 @@ public class ObterTitulos {
 					bot.setTitulos(customerInfo);
 					
 					if((Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAbertos()) == 0)&&(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAssessoria()) == 0)&&(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeVencidos()) == 0)) {
-						att.get(0).setValue("Obter T�tulos - Sem Boletos Pendentes");
+						att.get(0).setValue("Obter Títulos - Sem Boletos Pendentes");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.SEM_BOLETO;
 					}else if(Integer.parseInt(bot.getTitulos().getDadosTitulos().getQtdeAssessoria()) > 0) {
@@ -46,11 +46,11 @@ public class ObterTitulos {
 
 				}catch(Exception e) {
 					if(bot.getError() == 500) {
-						att.get(0).setValue("Obter T�tulos - Erro de Integra��o");
+						att.get(0).setValue("Obter Títulos - Erro de Integração");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.ERRO_TITULO;	
 					}else{
-						att.get(0).setValue("Obter T�tulos - Boletos n�o Localizados");
+						att.get(0).setValue("Obter Títulos - Boletos não Localizados");
 						bot.setcInfo(att);
 						botStateFlow.navigationKey = BotOmnilink.STATES.SDADOS;	
 					}

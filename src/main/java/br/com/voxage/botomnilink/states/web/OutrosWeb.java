@@ -41,6 +41,8 @@ public class OutrosWeb {
 				switch(userInput.toLowerCase()) {
 					case"1 - agendamento":
 						try {
+							att.get(0).setValue("1 - Agendamento");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OAGENDAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -48,6 +50,8 @@ public class OutrosWeb {
 						break;
 					case"2 - cancelamento de contrato":
 						try {
+							att.get(0).setValue("2 - Cancelamento de Contrato");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OCANCELAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -55,6 +59,8 @@ public class OutrosWeb {
 						break;
 					case"3 - espelhamento de sinal":
 						try {
+							att.get(0).setValue("3 - Espelhamento de Sinal");
+							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("3");
 								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
@@ -67,6 +73,8 @@ public class OutrosWeb {
 						break;
 					case"4 - financeiro":
 						try {
+							att.get(0).setValue("4 - Financeiro");
+							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("4");
 								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
@@ -79,6 +87,8 @@ public class OutrosWeb {
 						break;
 					case"5 - suporte":
 						try {
+							att.get(0).setValue("5 - Suporte");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OSUPORTE);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -86,6 +96,8 @@ public class OutrosWeb {
 						break;
 					case"6 - ativação":
 						try {
+							att.get(0).setValue("6 - Ativação");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OATIVACAO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -93,6 +105,8 @@ public class OutrosWeb {
 						break;
 					case"1":
 						try {
+							att.get(0).setValue("1 - Agendamento");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OAGENDAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -100,6 +114,8 @@ public class OutrosWeb {
 						break;
 					case"2":
 						try {
+							att.get(0).setValue("2 - Cancelamento de Contrato");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OCANCELAMENTO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -107,6 +123,8 @@ public class OutrosWeb {
 						break;
 					case"3":
 						try {
+							att.get(0).setValue("3 - Espelhamento de Sinal");
+							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("3");
 								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
@@ -119,6 +137,8 @@ public class OutrosWeb {
 						break;
 					case"4":
 						try {
+							att.get(0).setValue("4 - Financeiro");
+							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("4");
 								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
@@ -131,6 +151,8 @@ public class OutrosWeb {
 						break;
 					case"5":
 						try {
+							att.get(0).setValue("5 - Suporte");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OSUPORTE);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -138,6 +160,8 @@ public class OutrosWeb {
 						break;
 					case"6":
 						try {
+							att.get(0).setValue("6 - Ativação");
+							bot.setcInfo(att);
 							botInputResult.setIntentName(BotOmnilink.STATES.OATIVACAO);
 						}catch(Exception e) {
 							botInputResult.setResult(BotInputResult.Result.ERROR);
@@ -154,9 +178,6 @@ public class OutrosWeb {
 					default:
 						botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
 				}
-				
-				att.get(0).setValue(userInput);
-				bot.setcInfo(att);
 				
 				return botInputResult;
 			});
