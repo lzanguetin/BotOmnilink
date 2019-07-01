@@ -20,6 +20,9 @@ public class EspelhamentoExiste {
 		return new BotState("/") {{
 			setId("ESP_EXISTE");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setPreFunction(botState -> {              

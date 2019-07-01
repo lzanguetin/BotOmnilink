@@ -15,6 +15,9 @@ public class EscolherTituloWeb {
 		return new BotState("/") {{
 			setId("ESCOLHER_TITULO_WEB");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
@@ -112,8 +115,8 @@ public class EscolherTituloWeb {
 			setNextNavigationMap(new HashMap<String, String>(){{
 				put(BotOmnilink.STATES.ENVIAR_TITULOS, "/ENVIAR_TITULOS");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR"); 
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT");   
 			}});
 		}};
 	}

@@ -13,11 +13,14 @@ import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
 
-public class CpfCnpj{
+public class CpfCnpj{	
 	@SuppressWarnings("serial")
 	public static BotState load(BotOmnilink bot) {
 		return new BotState("/") {{
 			setId("CPFCNPJ");
+			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
 			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			

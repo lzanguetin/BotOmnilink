@@ -45,10 +45,12 @@ C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnil
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\financeiro\ErroEnvio.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\IncluirEspExistente.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\transfer\OAtivacao.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\transfer\Financeiro.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\TecValidaWhats.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\utils\TipoTecnologiaValida.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\web\EspelhamentoWeb.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\whats\InclusaoEspWhats.java
+C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\transfer\Espelhamento.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ConsultarContrato.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\models\TransferType.java
 C:\Users\leonardo.zanguetin\git\BotOmnilink\src\main\java\br\com\voxage\botomnilink\states\espelhamento\ErroContrato.java

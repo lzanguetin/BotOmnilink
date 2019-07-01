@@ -18,6 +18,9 @@ public class MenuWeb {
 		return new BotState("/") {{
 			setId("MENU_WEB");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
@@ -66,7 +69,7 @@ public class MenuWeb {
 					case"3 - espelhamento de sinal":
 						try {
 							dadosFluxo.setOption("3");
-							botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+							botInputResult.setIntentName(BotOmnilink.STATES.ESPELHAMENTO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
@@ -74,7 +77,7 @@ public class MenuWeb {
 					case"4 - financeiro":
 						try {
 							dadosFluxo.setOption("4");
-							botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+							botInputResult.setIntentName(BotOmnilink.STATES.FINANCEIRO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
@@ -114,7 +117,7 @@ public class MenuWeb {
 					case"3":
 						try {
 							dadosFluxo.setOption("3");
-							botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+							botInputResult.setIntentName(BotOmnilink.STATES.ESPELHAMENTO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
@@ -122,7 +125,7 @@ public class MenuWeb {
 					case"4":
 						try {
 							dadosFluxo.setOption("4");
-							botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+							botInputResult.setIntentName(BotOmnilink.STATES.FINANCEIRO);
 						}catch(Exception e){
 							botInputResult.setResult(BotInputResult.Result.ERROR);
 						}
@@ -174,10 +177,11 @@ public class MenuWeb {
 				put(BotOmnilink.STATES.CANCELAMENTO, "/CANCELAMENTO");
 				put(BotOmnilink.STATES.SUPORTE, "/SUPORTE");
 				put(BotOmnilink.STATES.ATIVACAO, "/ATIVACAO");
-				put(BotOmnilink.STATES.TOKEN, "/TOKEN");
+				put(BotOmnilink.STATES.FINANCEIRO, "/FINANCEIRO");
+				put(BotOmnilink.STATES.ESPELHAMENTO, "/ESPELHAMENTO");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR");  
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT");  
 			}});
 		}};
 	}

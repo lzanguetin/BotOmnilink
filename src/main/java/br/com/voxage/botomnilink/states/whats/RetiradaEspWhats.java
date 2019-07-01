@@ -15,6 +15,9 @@ public class RetiradaEspWhats {
 		return new BotState("/") {{
 			setId("RETIRAR_ESP_WHATS");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
@@ -103,8 +106,8 @@ public class RetiradaEspWhats {
 				put(BotOmnilink.STATES.TIPO_ESPELHAMENTO, "#TIPO_ESPELHAMENTO");
 				put(BotOmnilink.STATES.OUTROS, "#OUTROS");
 				put(BotOmnilink.STATES.FINALIZAR, "#FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR"); 
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT");   
 			}});
 		}};
 	}

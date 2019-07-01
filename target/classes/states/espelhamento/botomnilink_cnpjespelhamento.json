@@ -3,7 +3,12 @@
 		{
 			"id": "/CNPJ_ESP",
 			"idNavigationDetail": 11600,
-			"initialMessages": ["Informe o CNPJ da Empresa para onde deseja espelhar o sinal."],
+			"initialMessages": [{
+				"message":"Informe o CNPJ da Empresa para onde deseja espelhar o sinal.\nOu consulte a lista de CNPJ's",	
+				"description":"aqui",
+				"url":"https://meu.omnilink.com.br/Arquivos/Lista%20de%20Empresas%20para%20Espelhamento%20de%20Sinal.pdf",
+				"messageType": "EXTERNAL_LINK"
+			}],
 			"inputErrorResponses":[
 				{"order":"1", "messages":["O CNPJ que você informou não é válido. Digite novamente o CNPJ:"]},
 				{"order":"2", "messages": ["O CNPJ informado continua inválido. Digite outra vez o CNPJ:"]}

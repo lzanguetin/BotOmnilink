@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/INCLUSAO_ESP",
-			"idNavigationDetail": 11899,
+			"idNavigationDetail": 0,
 			"initialMessages": ["Pronto! O espelhamento do sinal foi realizado com sucesso.\nPeço que confirme com a Gerenciadora de Risco se está tudo Ok. Caso contrário, retorne seu contato conosco.\n"]
 		}
 	]

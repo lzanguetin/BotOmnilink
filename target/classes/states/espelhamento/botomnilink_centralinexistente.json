@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/CENT_INEXIST",
-			"idNavigationDetail": 12199,
+			"idNavigationDetail": 0,
 			"initialMessages": ["Vejo aqui que não existe central com o CNPJ e Porta informados."]
 		}
 	]

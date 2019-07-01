@@ -10,11 +10,14 @@ import br.com.voxage.vbot.BotState;
 import br.com.voxage.vbot.BotStateFlow;
 import br.com.voxage.vbot.BotStateInteractionType;
 
-public class CnpjEspelhamento {
+public class CnpjEspelhamento {	
 	@SuppressWarnings("serial")
 	public static BotState load(BotOmnilink bot) {
 		return new BotState("/") {{
 			setId("CNPJ_ESP");
+			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
 			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			

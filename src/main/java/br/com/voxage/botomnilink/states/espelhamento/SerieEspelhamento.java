@@ -17,6 +17,9 @@ public class SerieEspelhamento {
 		return new BotState("/") {{
 				setId("SERIE_ESP");
 				
+				setMaxInputTime(1200000);
+				setMaxNoInput(0);
+				
 				setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 				
 				setProcessDirectInputFunction((botState, userInputs)->{

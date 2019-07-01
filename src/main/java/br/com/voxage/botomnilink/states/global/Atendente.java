@@ -3,7 +3,6 @@ package br.com.voxage.botomnilink.states.global;
 import static br.com.voxage.chat.botintegration.utils.AppLogger.log;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import br.com.voxage.botomnilink.BotOmnilink;
 import br.com.voxage.botomnilink.models.DadosFluxo;
@@ -16,21 +15,10 @@ public class Atendente {
     @SuppressWarnings("serial")
 	public static BotState load(BotOmnilink bot) {
         return new BotState("/") {{
-        	Map<String, Integer> internalNavigationDetails = new HashMap<String, Integer>(){{
-    			put("OPCAO_1", 20);
-    			put("OPCAO_2", 30);
-    			put("OPCAO_3", 40);
-    			put("OPCAO_4", 50);
-    			put("OPCAO_5", 60);
-    			put("OPCAO_6", 70);
-    		}};
-    		
             setId("ATENDENTE");
             setMaxInputError(2);
             setMaxNoInput(2);
-            setBotStateInteractionType(BotStateInteractionType.NO_INPUT);
-            setInternalNavigationDetailIds(internalNavigationDetails);
-            
+            setBotStateInteractionType(BotStateInteractionType.NO_INPUT);       
             
             setPreFunction(botState -> {
 
@@ -53,19 +41,15 @@ public class Atendente {
             	 DadosFluxo dadosFluxo = bot.getDadosFluxo();
             	 
             	 if(bot.getSessionId().contains("whatsapp")) {
-                	 bot.getNavigationTracker().trackNavigationDetail(botState.getInternalNavigationDetailId(String.format("OPCAO_%s", dadosFluxo.getOption())));
                 	 bot.setOption("transfer_to_attendant(" + tipo.getWhatsapp().getSubjectIds().get(String.format("OPCAO_%s", dadosFluxo.getOption())) + ")");
                 	 bot.setGroup(tipo.getWhatsapp().getGroups().get(String.format("OPCAO_%s", dadosFluxo.getOption()))); 
             	 }else if(bot.getSessionId().contains("telegram")) {
-            		 bot.getNavigationTracker().trackNavigationDetail(botState.getInternalNavigationDetailId(String.format("OPCAO_%s", dadosFluxo.getOption())));
                 	 bot.setOption("transfer_to_attendant(" + tipo.getTelegram().getSubjectIds().get(String.format("OPCAO_%s", dadosFluxo.getOption())) + ")");
                 	 bot.setGroup(tipo.getTelegram().getGroups().get(String.format("OPCAO_%s", dadosFluxo.getOption())));
             	 }else if(bot.getSessionId().contains("messenger")) {
-            		 bot.getNavigationTracker().trackNavigationDetail(botState.getInternalNavigationDetailId(String.format("OPCAO_%s", dadosFluxo.getOption())));
                 	 bot.setOption("transfer_to_attendant(" + tipo.getMessenger().getSubjectIds().get(String.format("OPCAO_%s", dadosFluxo.getOption())) + ")");
                 	 bot.setGroup(tipo.getMessenger().getGroups().get(String.format("OPCAO_%s", dadosFluxo.getOption())));
             	 }else {
-            		 bot.getNavigationTracker().trackNavigationDetail(botState.getInternalNavigationDetailId(String.format("OPCAO_%s", dadosFluxo.getOption())));
                 	 bot.setOption("transfer_to_attendant(" + tipo.getWeb().getSubjectIds().get(String.format("OPCAO_%s", dadosFluxo.getOption())) + ")");
                 	 bot.setGroup(tipo.getWeb().getGroups().get(String.format("OPCAO_%s", dadosFluxo.getOption())));
             	 }

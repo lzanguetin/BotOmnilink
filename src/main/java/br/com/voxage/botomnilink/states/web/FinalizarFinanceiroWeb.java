@@ -15,6 +15,9 @@ public class FinalizarFinanceiroWeb {
 		return new BotState("/") {{
 			setId("FINALIZAR_FINANCEIRO_WEB");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
@@ -101,8 +104,8 @@ public class FinalizarFinanceiroWeb {
 				put(BotOmnilink.STATES.TIPO_FINANCEIRO, "/TIPO_FINANCEIRO");
 				put(BotOmnilink.STATES.OUTROS, "/OUTROS");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR"); 
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT");  
 			}});
 		}};
 	}

@@ -17,6 +17,9 @@ public class OutrosWeb {
 		return new BotState("/") {{
 			setId("OUTROS_WEB");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
@@ -63,7 +66,7 @@ public class OutrosWeb {
 							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("3");
-								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+								botInputResult.setIntentName(BotOmnilink.STATES.ESPELHAMENTO);
 							}else {
 								botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
 							}
@@ -77,7 +80,7 @@ public class OutrosWeb {
 							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("4");
-								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+								botInputResult.setIntentName(BotOmnilink.STATES.FINANCEIRO);
 							}else {
 								botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
 							}
@@ -127,7 +130,7 @@ public class OutrosWeb {
 							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("3");
-								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+								botInputResult.setIntentName(BotOmnilink.STATES.ESPELHAMENTO);
 							}else {
 								botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
 							}
@@ -141,7 +144,7 @@ public class OutrosWeb {
 							bot.setcInfo(att);
 							if("true".equals(auto)) {
 								dadosFluxo.setOption("4");
-								botInputResult.setIntentName(BotOmnilink.STATES.TOKEN);
+								botInputResult.setIntentName(BotOmnilink.STATES.FINANCEIRO);
 							}else {
 								botInputResult.setIntentName(BotOmnilink.STATES.ATENDENTE);
 							}
@@ -198,10 +201,11 @@ public class OutrosWeb {
 				put(BotOmnilink.STATES.TIPO_FINANCEIRO, "/TIPO_FINANCEIRO");
 				put(BotOmnilink.STATES.OSUPORTE, "/OSUPORTE");
 				put(BotOmnilink.STATES.OATIVACAO, "/OATIVACAO");
-				put(BotOmnilink.STATES.TOKEN, "/TOKEN");
+				put(BotOmnilink.STATES.FINANCEIRO, "/FINANCEIRO");
+				put(BotOmnilink.STATES.ESPELHAMENTO, "/ESPELHAMENTO");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR");  
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT");   
 			}});
 		}};
 	}

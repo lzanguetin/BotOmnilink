@@ -63,8 +63,6 @@ public class ConsultarContrato {
 				put(BotOmnilink.STATES.SERIE_ESP, "/SERIE_ESP");
 				put(BotOmnilink.STATES.SEM_SERIE, "/SEM_SERIE");
 				put(BotOmnilink.STATES.ERRO_CONTRATO, "/ERRO_CONTRATO");
-                put("MAX_INPUT_ERROR", "/TERMINATE");
-                put("MAX_NO_INPUT", "/TERMINATE");
 			}});
 		}};
 	}

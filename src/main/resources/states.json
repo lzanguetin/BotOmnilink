@@ -3,6 +3,14 @@
 		{
 			"id": "/START",
 			"idNavigationDetail": 10000
-		}
+		},
+		{
+            "id": "/MAX_NO_INPUT",
+            "idNavigationDetail": 9996
+        },
+        {
+            "id": "/MAX_INPUT_ERROR",
+            "idNavigationDetail": 9998
+        }
 	]
 }

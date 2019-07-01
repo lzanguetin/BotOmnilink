@@ -17,6 +17,9 @@ public class ObterPIN {
 		return new BotState("/") {{
 			setId("OBTER_PIN");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs) ->{

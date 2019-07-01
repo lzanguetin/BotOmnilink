@@ -16,6 +16,9 @@ public class ExcluirCentralWhats {
 		return new BotState("/") {{
 			setId("EXCLUIR_CENTRAL_WHATS");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setPreFunction(botState ->{
@@ -100,8 +103,8 @@ public class ExcluirCentralWhats {
 				put(BotOmnilink.STATES.REMOVER_ESP, "#REMOVER_ESP");
 				put(BotOmnilink.STATES.TIPO_FINALIZAR_ESP, "#TIPO_FINALIZAR_ESP");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR"); 
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT");  
 			}});
 		}};
 	}

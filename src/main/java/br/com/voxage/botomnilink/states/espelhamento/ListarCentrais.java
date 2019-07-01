@@ -20,6 +20,9 @@ public class ListarCentrais {
 		return new BotState("/") {{
 			setId("LISTR_CENTRAL");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setPreFunction(botState -> {              

@@ -2,7 +2,7 @@
 	"states":[
 		{
 			"id": "/ERRO_CONTRATO",
-			"idNavigationDetail": 9998,
+			"idNavigationDetail": 9997,
 			"initialMessages": ["Desculpe, mas eu continuo não localizando a série informada. Por favor, verifique o número e retorne."]
 		}
 	]

@@ -15,6 +15,9 @@ public class InclusaoEspWeb {
 		return new BotState("/") {{
 			setId("INCLUSAO_ESP_WEB");
 			
+			setMaxInputTime(1200000);
+			setMaxNoInput(0);
+			
 			setBotStateInteractionType(BotStateInteractionType.DIRECT_INPUT);
 			
 			setProcessDirectInputFunction((botState, userInputs)->{
@@ -109,8 +112,8 @@ public class InclusaoEspWeb {
 				put(BotOmnilink.STATES.TIPO_ESPELHAMENTO, "/TIPO_ESPELHAMENTO");
 				put(BotOmnilink.STATES.OUTROS, "/OUTROS");
 				put(BotOmnilink.STATES.FINALIZAR, "/FINALIZAR");
-                put("MAX_INPUT_ERROR", "/FINALIZAR");
-                put("MAX_NO_INPUT", "/FINALIZAR"); 
+                put("MAX_INPUT_ERROR", "/MAX_INPUT_ERROR");
+                put("MAX_NO_INPUT", "/MAX_NO_INPUT"); 
 			}});
 		}};
 	}
